@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CLINICOR - FAQ</title>
+  <link rel="stylesheet" href="./style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+    /* Estilos adicionais para a página FAQ         background-color: #000000;*/
+    
+    body::before {
+      content: '';
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-image: url("images/image7.jpg");
+      background-size: cover;
+      filter: blur(40px);
+      z-index: -1;
+    }
+    .faq-section{
+        position: relative;
+        top: 150px;
+        padding-left: 100px;
+    }
+
+    .faq-question{
+        font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="navebar">
+      <div class="logo">
+        <img src="images/logo_clinicor-300x98.png">
+      </div>
+      <div>
+        <button id="alternar-tema">
+          <i id="icone-tema" class="fas fa-sun"></i>
+        </button>
+        <!-- Links do menu -->
+        <a href="home.html" class="button" id="link-home">HOME</a>
+        <a href="exames.html" class="button" id="link-exames">EXAMES</a>
+        <a href="convenios.html" class="button" id="link-convenios">CONVÊNIOS</a>
+        <a href="medicos.html" class="button" id="link-medicos">MÉDICOS</a>
+        <a href="especialidades.html" class="button" id="link-especialidades">ESPECIALIDADES</a>
+        <a href="fale_conosco.html" class="button" id="link-fale-conosco">FALE CONOSCO</a>
+        <a href="a_clinica.html" class="button" id="link-a-clinica">A CLINICA</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- Seção de FAQ -->
+    <section class="faq-section">
+      <h1>Perguntas Frequentes</h1>
+      
+      <!-- Perguntas e respostas -->
+      <div class="faq-item">
+        <div class="faq-question">Pergunta: Qual é o horário de funcionamento da clínica?</div>
+        <div class="faq-answer">Resposta: Nosso horário de funcionamento é de segunda a sexta-feira das 8h às 18h e aos sábados das 8h às 12h.</div>
+        
+    </div> <br>
+        
+      <div class="faq-item">
+        <div class="faq-question">Pergunta: Como faço para marcar uma consulta?</div>
+        <div class="faq-answer">Resposta: Você pode marcar uma consulta ligando para o nosso número de telefone principal ou através do nosso sistema de agendamento online em nosso site.</div>
+      </div><br>
+      <div class="faq-item">
+        <div class="faq-question">Pergunta: Quais especialidades médicas estão disponíveis na clínica?</div>
+        <div class="faq-answer">Resposta: Oferecemos uma variedade de especialidades médicas, incluindo pediatria, ginecologia, cardiologia, ortopedia, dermatologia, entre outras.</div>
+      </div><br>
+      <!-- Mais perguntas e respostas podem ser adicionadas aqui -->
+    </section>
+  </main>
+   
+  <footer>
+    <!-- Rodapé -->
+  </footer>
+  <script src="tema.js"></script>
+  <script>
+    // Script para mostrar/ocultar respostas das perguntas
+    const faqQuestions = document.querySelectorAll('.faq-question');
+    faqQuestions.forEach(question => {
+      question.addEventListener('click', () => {
+        const answer = question.nextElementSibling;
+        answer.classList.toggle('faq-answer-show');
+      });
+    });
+  </script>
+</body>
+</html>
