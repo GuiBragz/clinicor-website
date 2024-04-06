@@ -1,0 +1,49 @@
+body{
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-image: url("../images/login-background.jpg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-attachment: fixed;
+}
+h1{
+    color: red;
+    font-size: 3.3em;
+}
+main{
+    margin-top: 25vh;
+}
+div.campos-div{
+    margin-top: 20px;
+}
+.input-campo{
+    border-color: red;
+    border-radius: 9px;
+    border-width: 0.5px;
+}
+.input-campo{
+    height: 1.6em;
+}
+#input-email{
+    width: 25vw;
+}
+#input-senha{
+    width: 18vw;
+}
+.button{
+    font-weight: bold;
+    align-items: center;
+    display: inline-block;
+    padding: 5px 10px;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    margin-top: 10px;
+    background-color: red;
+    border: none;
+}
+.button:hover{
+    background-color: white;
+    color: red;
+}
