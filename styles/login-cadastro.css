@@ -1,25 +1,61 @@
 body{
     display: flex;
     justify-content: center;
-    text-align: center;
     background-color: rgba(0, 0, 0, 0.514);
 }
 
+h1 {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+
+.retangulo {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 5px;
+    height: 350px;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 5px;
+}
 
 /* Imagem em cima do login */
-.homel {
+.logimg {
     position: absolute;
     width: 130px;
     height: 130px;
     z-index: 2;
-    top: 20%;
+    top: 4%;
     left: 50%;
+    transform: translate(-50%, -50%);
+    display: none;
+}
+
+.logimg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Imagem da logo */
+.homelogo {
+    position: absolute;
+    width: 328px;
+    height: 500px;
+    z-index: 2;
+    top: 50%;
+    left: -145%;
     transform: translate(-50%, -50%);
 }
 
-.homel img {
-    width: 100%;
-    height: 100%;
+.homelogo img {
+    width: 90%;
+    height: 90%;
     object-fit: cover;
 }
 
@@ -42,7 +78,7 @@ body{
 
 /* Adiciona a imagem de fundo do login/cadastro */
 .fundo {
-    position: absolute;
+    position: fixed;
     top: 0; left: 0; /* Põe a imagem sem bordas na pagina */
     width: 100%; height: 100%;
     background-image: url('../images/login-background.jpg'); /* URL da imagem, o "../" serve para falar que o conteúdo está em uma pasta anterior ao arquivo CSS */
@@ -72,25 +108,25 @@ label{
     color: red;
     font-size: 3.6em;
 }
-.login-area a{
-    color: rgb(9, 95, 255);
+
+/* cor dos links */
+.link{
+    color: rgb(255, 0, 0);
     text-decoration: none;
     font-size: 18px;
 }
-.login-area a:hover{
-    color: rgb(255, 56, 21);
+.link:hover{
+    color: rgb(255, 93, 93);
 }
+
 .login-area{
-    position: relative;
-    margin-top: 18px;
+    position: absolute;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 45px;
-    padding-top: 80px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.14);
-    z-index: 0;
-    top: 35%;
-    left: 50%;
+    top: 50%;
+    left: 75%;
     transform: translate(-50%, -50%);
 }
 .input-campo{
@@ -100,6 +136,8 @@ label{
     height: 1.6em;
     padding: 3px;
     z-index: 0;
+    width: 100%;
+    
 }
 
 .input-campo:hover{
@@ -110,19 +148,21 @@ label{
     outline: none;
     border-width: 2px;
 }
+
+/* Botões */
 .button{
     text-align: center;
     font-weight: bold;
     color: white;
-    border-radius: 5px;
-    border: 2px solid transparent;
-    border-color: rgb(255, 16, 16);
+    border-radius: 18px;
+    border: none;
     background-color: red;
     height: 36px;
     width: 50%;
+    margin-left: 27%;
 }
 .button:hover{
-    background-color: rgb(196, 10, 10);
+    background-color: rgb(165, 1, 1);
     color: rgb(255, 255, 255);
     border-color: rgb(143, 0, 0);
     outline: none;
@@ -139,4 +179,25 @@ label{
 .cadastro-area h1{
     color: red;
     font-size: 3.8em;
+}
+
+@media screen and (max-width: 950px) {
+    .retangulo {
+        display: none;
+    }
+
+    .homelogo{
+        display: none;
+    }
+
+    .login-area {
+        top: 50%;
+        left: 50%;
+        margin-top: 18px;
+        padding-top: 80px;
+    }
+
+    .logimg {
+        display: block;
+    }
 }
