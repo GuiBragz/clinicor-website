@@ -2,6 +2,7 @@ body{
     display: flex;
     justify-content: center;
     background-color: rgba(0, 0, 0, 0.514);
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 h1 {
@@ -106,7 +107,7 @@ label{
 }
 .login-area h1{
     color: red;
-    font-size: 3.6em;
+    font-size: 3em;
 }
 
 /* cor dos links */
@@ -181,7 +182,7 @@ label{
     font-size: 3.8em;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 1050px) {
     .retangulo {
         display: none;
     }
@@ -193,7 +194,6 @@ label{
     .login-area {
         top: 50%;
         left: 50%;
-        margin-top: 18px;
         padding-top: 80px;
     }
 
