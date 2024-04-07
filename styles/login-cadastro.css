@@ -4,19 +4,29 @@ body{
     text-align: center;
     background-color: rgba(0, 0, 0, 0.514);
 }
-body::before{
-    content: "";
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url("../images/login-background.jpg");
-    background-repeat: no-repeat;
-    background-size: cover;
-    background-attachment: fixed;
-    filter: blur(4px);
+
+/* Adiciona a imagem do login/cadastro */
+.fundo {
+    position: absolute;
+    top: 0; left: 0; /* Põe a imagem sem bordas na pagina */
+    width: 100%; height: 100%;
+    background-image: url('../images/login-background.jpg'); /* URL da imagem, o "../" serve para falar que o conteúdo está em uma pasta anterior ao arquivo CSS */
+    background-size: cover; /* ajusta a imagem para cobrir a página */
+    z-index: -1; /* Layer da imagem */
+    filter: blur(3px);
 }
+
+/* Adiciona o fundo escuro a imagem */
+.fundo::before {
+    content: ''; /* Serve apenas para o CSS não indentificar o fundo como um elemento vazio */
+    position: absolute;
+    top: 0; left: 0; /* Põe o fundo sem bordas na pagina */
+    width: 100%; height: 100%; 
+    background-color: black; /* Cor do fundo */
+    z-index: -1; /* Layer do fundo */
+    opacity: 60%; /* Muda a opacidade do fundo escuro */
+}
+
 main{
     margin-top: 25vh;
 }
@@ -38,17 +48,19 @@ label{
 .login-area{
     position: relative;
     margin-top: 18px;
-    background-color: white;
-    padding: 10px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 45px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.14);
 }
 .input-campo{
     border-color: red;
-    border-radius: 9px;
+    border-radius: 15px;
     border-width: 0.5px;
     height: 1.6em;
+    padding: 3px;
 }
+
 .input-campo:hover{
     background-color: rgba(255, 210, 210, 0.774);    
 }
@@ -76,9 +88,9 @@ label{
 }
 .cadastro-area{
     position: relative;
-    margin-top: 18px;
-    background-color: white;
-    padding: 24px;
+    margin-top: -100px;
+    background-color: rgba(255, 255, 255, 0.7);
+    padding: 45px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.14);
 }
