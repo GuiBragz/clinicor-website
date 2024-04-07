@@ -5,7 +5,42 @@ body{
     background-color: rgba(0, 0, 0, 0.514);
 }
 
-/* Adiciona a imagem do login/cadastro */
+
+/* Imagem em cima do login */
+.homel {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    z-index: 2;
+    top: 20%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.homel img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Imagem em cima do cadastro */
+.homec {
+    position: absolute;
+    width: 130px;
+    height: 130px;
+    z-index: 2;
+    top: 13%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.homec img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Adiciona a imagem de fundo do login/cadastro */
 .fundo {
     position: absolute;
     top: 0; left: 0; /* Põe a imagem sem bordas na pagina */
@@ -16,7 +51,7 @@ body{
     filter: blur(3px);
 }
 
-/* Adiciona o fundo escuro a imagem */
+/* Adiciona o fundo escuro a imagem de fundo */
 .fundo::before {
     content: ''; /* Serve apenas para o CSS não indentificar o fundo como um elemento vazio */
     position: absolute;
@@ -50,8 +85,13 @@ label{
     margin-top: 18px;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 45px;
+    padding-top: 80px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.14);
+    z-index: 0;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 .input-campo{
     border-color: red;
@@ -59,13 +99,14 @@ label{
     border-width: 0.5px;
     height: 1.6em;
     padding: 3px;
+    z-index: 0;
 }
 
 .input-campo:hover{
-    background-color: rgba(255, 210, 210, 0.774);    
+    background-color: rgba(255, 255, 255, 0.774);    
 }
 .input-campo:focus{
-    background-color: rgba(255, 210, 210, 0.774);
+    background-color: rgba(255, 255, 255, 0.774);
     outline: none;
     border-width: 2px;
 }
@@ -82,7 +123,7 @@ label{
 }
 .button:hover{
     background-color: rgb(196, 10, 10);
-    color: rgb(206, 198, 198);
+    color: rgb(255, 255, 255);
     border-color: rgb(143, 0, 0);
     outline: none;
 }
@@ -91,6 +132,7 @@ label{
     margin-top: -100px;
     background-color: rgba(255, 255, 255, 0.7);
     padding: 45px;
+    padding-top: 80px;
     border-radius: 16px;
     box-shadow: 0 0 10px rgb(0, 0, 0, 0.14);
 }
