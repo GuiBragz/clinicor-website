@@ -78,3 +78,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("link-login").classList.add("ativo");
     }
 });
+const navebar = document.querySelector('.navebar');
+const sidebarBtn = document.querySelector('.sidebar'); // Corrigido de sideber para sidebar
+
+sidebarBtn.addEventListener('click', () => {
+  navebar.classList.toggle('open');
+});
