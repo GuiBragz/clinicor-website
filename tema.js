@@ -72,7 +72,9 @@ document.addEventListener("DOMContentLoaded", function() {
         document.getElementById("link-especialidades").classList.add("ativo");
     } else if (pathname.includes("fale_conosco.html")) {
         document.getElementById("link-fale-conosco").classList.add("ativo");
-    } else if (pathname.includes("a_clinica.html")) {
-        document.getElementById("link-a-clinica").classList.add("ativo");
+    } else if (pathname.includes("aclinica.html")) {
+        document.getElementById("link-aclinica").classList.add("ativo");
+    } else if (pathname.includes("login.html")) {
+        document.getElementById("link-login").classList.add("ativo");
     }
 });
