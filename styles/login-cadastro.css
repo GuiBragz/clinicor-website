@@ -11,7 +11,19 @@ h1 {
 
 p {
     text-align: center;
+    font-size: 15px;
 }
+
+span {
+    font-size: 15px;
+    text-align: right;
+}
+
+a {
+    color: white; 
+    text-decoration: none; 
+  }
+  
 
 .retangulo {
     position: absolute;
@@ -114,7 +126,7 @@ label{
 .link{
     color: rgb(255, 0, 0);
     text-decoration: none;
-    font-size: 18px;
+    font-size: 15px;
 }
 .link:hover{
     color: rgb(255, 93, 93);
@@ -152,7 +164,6 @@ label{
 
 /* Botões */
 .button{
-    text-align: center;
     font-weight: bold;
     color: white;
     border-radius: 18px;
@@ -160,15 +171,18 @@ label{
     background-color: red;
     height: 36px;
     width: 50%;
-    margin-left: 27%;
+    margin-left: 0%;
+    margin-right: 5px;
 }
 .button:hover{
     background-color: rgb(165, 1, 1);
     color: rgb(255, 255, 255);
-    border-color: rgb(143, 0, 0);
     outline: none;
+    border: none;
 }
+
 .cadastro-area{
+    white-space: nowrap;
     position: relative;
     margin-top: -100px;
     background-color: rgba(255, 255, 255, 0.7);
