@@ -1,0 +1,116 @@
+.text-center_strong{ /* Texto grande que fica no meio da tela */
+    text-align: center;
+    font-size: 40px;
+    color: #8E1818;
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+  .text-center{ /* Texto pequeno que fica no meio da tela */
+    text-align: center;
+    color: #8f8f8f;
+    margin-bottom: 30px;
+  }
+  /*  */
+  .home-especialidades_container{ /* parte transparente que agrupa os tres items cinza */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-especialidades_container img{
+    margin-top: 35px;
+  }
+  .home-especialidades_items{ /* parte cinza que fica ao redor da imagem e botão de saiba mais */
+    background-color: #ccc;
+    width: 250px;
+    height: 400px;
+    border-radius: 10px; /* borda arredondada */
+    margin-top: 30px; /* margem por fora */
+    margin-bottom: 30px; /* margem por fora */
+    margin-right: 60px; /* margem por fora */
+    margin-left: 60px; /* margem por fora */
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    justify-content: space-between; /* Adiciona espaçamento entre os itens */
+    padding: 20px; /* Adiciona um espaçamento interno ao container */
+  }
+  #home-especialidades_items_p { /* representa a palavra que descreve a imagem  */
+    text-align: center;
+    font-size: 25px;
+    color: #8E1818;
+    font-weight: bold;
+  }
+  .home-especialidades_botton{ /* botão de saiba mais que fica dentro de especialidades */
+    padding: 10px 20px;
+    border: 2px solid black;
+    border-radius: 20px;
+    background-color: #ccc;
+    color: black;
+    cursor: pointer;
+    transition: background-color 0.3s;
+    display: flex;
+    justify-content: center;
+  }
+  .home-especialidades_botton:hover{ /* botão de saiba mais que fica dentro de especialidades */
+    border: none;
+    background-color: #8E1818;
+    color: white;
+  }
+  .home-mostrar_tudo_div{
+    height: 100%;
+    margin: 30px;
+    margin-bottom: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .home-mostrar_tudo_botton{  /* botão de mostrar tudo que fica abaixo de especialidades */
+    color: #8E1818;
+    border: 2px solid black;
+    padding: 10px 20px;
+    border-radius: 10px;
+    width: 200px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: bold;
+    text-align: center;
+  }
+  .home-mostrar_tudo_botton:hover{
+    border: none;
+    background-color: #8E1818;
+    color: white;
+  }
+
+  /* Estilos para o rodapé (todos aqueles que começam com o nome "footer" pertencem ao rodapé) */
+  footer {
+    background-color: #525252;
+    position: relative;
+    width: 100%;
+    min-height: 100px;
+    color: #fff;
+    padding: 80px 0;
+}
+  .footer-container{ /* parte escura do rodapé */
+    max-width: 1140px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 0 auto;
+  }
+  .footer-infos{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .footer-col img{
+    margin-right: 5px;
+    width: 20px;
+    height: auto;
+  }
+  .footer-col{ /* Representa as colunas do rodapé. */
+    min-width: 250px;
+    color: #fff;
+    padding: 0 2rem;
+
+  }
