@@ -1,0 +1,27 @@
+.botao {
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.estilo-do-botao {
+    display: inline-block;
+
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.5);
+    color: #000000;
+    border: none;
+    border-radius: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 12px;
+    transition: transform 0.5s ease;
+}
+
+.estilo-do-botao:hover {
+    background-color: rgba(0, 0, 0, 0.5);
+    color: #ffffff;
+    transform: scale(1.1);
+}
