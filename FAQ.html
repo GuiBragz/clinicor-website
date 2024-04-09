@@ -1,15 +1,15 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CLINICOR - FAQ</title>
-  <link rel="stylesheet" href="./style.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+```html
+<!DOCTYPE html> <!-- Declara o tipo de documento como HTML5 -->
+<html lang="pt-BR"> <!-- Define o idioma da página como português brasileiro -->
+<head> <!-- Cabeçalho da página -->
+  <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> <!-- Define a compatibilidade com o Internet Explorer -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a largura da viewport e a escala inicial para dispositivos móveis -->
+  <title>CLINICOR - FAQ</title> <!-- Define o título da página -->
+  <link rel="stylesheet" href="./style.css"> <!-- Importa uma folha de estilos personalizada -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"> <!-- Importa a folha de estilos do Font Awesome para ícones -->
   <style>
-    /* Estilos adicionais para a página FAQ         background-color: #000000;*/
-    
+    /* Estilos adicionais para a página FAQ */
     body::before {
       content: '';
       position: fixed;
@@ -17,9 +17,9 @@
       left: 0;
       width: 100%;
       height: 100%;
-      background-image: url("images/image7.jpg");
+      background-image: url("images/image7.jpg"); /* Define a imagem de fundo */
       background-size: cover;
-      filter: blur(40px);
+      filter: blur(40px); /* Aplica um efeito de desfoque na imagem */
       z-index: -1;
     }
     .faq-section{
@@ -33,14 +33,15 @@
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="navebar">
-      <div class="logo">
-        <a href="home.html"><img src="images/logo_clinicor-300x98.png"></a>      </div>
-      <div>
-        <button id="alternar-tema">
-          <i id="icone-tema" class="fas fa-sun"></i>
+<body> <!-- Corpo da página -->
+  <header> <!-- Cabeçalho da página -->
+    <div class="navebar"> <!-- Barra de navegação -->
+      <div class="logo"> <!-- Div para o logotipo -->
+        <a href="home.html"><img src="images/logo_clinicor-300x98.png"></a> <!-- Link para a página inicial com o logotipo -->
+      </div>
+      <div> <!-- Div para outros elementos da barra de navegação -->
+        <button id="alternar-tema"> <!-- Botão para alternar entre temas (claro/escuro) -->
+          <i id="icone-tema" class="fas fa-sun"></i> <!-- Ícone do tema (sol) -->
         </button>
         <!-- Links do menu -->
         <a href="home.html" class="button" id="link-home">HOME</a>
@@ -49,48 +50,47 @@
         <a href="medicos.html" class="button" id="link-medicos">MÉDICOS</a>
         <a href="especialidades.html" class="button" id="link-especialidades">ESPECIALIDADES</a>
         <a href="fale_conosco.html" class="button" id="link-fale-conosco">FALE CONOSCO</a>
-        <a href="a_clinica.html" class="button" id="link-a-clinica">A CLINICA</a>
+        <a href="aclinica.html" class="button" id="link-aclinica">A CLINICA</a>
       </div>
     </div>
-  </header>
-
-  <main>
+  </header> <!-- Fim do cabeçalho da página -->
+  <main> <!-- Elemento principal da página -->
     <!-- Seção de FAQ -->
     <section class="faq-section">
-      <h1>Perguntas Frequentes</h1>
-      
+      <h1>Perguntas Frequentes</h1> <!-- Título da seção de FAQ -->
       <!-- Perguntas e respostas -->
       <div class="faq-item">
-        <div class="faq-question">Pergunta: Qual é o horário de funcionamento da clínica?</div>
-        <div class="faq-answer">Resposta: Nosso horário de funcionamento é de segunda a sexta-feira das 8h às 18h e aos sábados das 8h às 12h.</div>
-        
-    </div> <br>
-        
+        <div class="faq-question">Pergunta: Qual é o horário de funcionamento da clínica?</div> <!-- Pergunta -->
+        <div class="faq-answer">Resposta: Nosso horário de funcionamento é de segunda a sexta-feira das 8h às 18h e aos sábados das 8h às 12h.</div> <!-- Resposta -->
+      </div> <!-- Fim da div de pergunta e resposta -->
+      <br> <!-- Quebra de linha -->
       <div class="faq-item">
-        <div class="faq-question">Pergunta: Como faço para marcar uma consulta?</div>
-        <div class="faq-answer">Resposta: Você pode marcar uma consulta ligando para o nosso número de telefone principal ou através do nosso sistema de agendamento online em nosso site.</div>
-      </div><br>
+        <div class="faq-question">Pergunta: Como faço para marcar uma consulta?</div> <!-- Pergunta -->
+        <div class="faq-answer">Resposta: Você pode marcar uma consulta ligando para o nosso número de telefone principal ou através do nosso sistema de agendamento online em nosso site.</div> <!-- Resposta -->
+      </div> <!-- Fim da div de pergunta e resposta -->
+      <br> <!-- Quebra de linha -->
       <div class="faq-item">
-        <div class="faq-question">Pergunta: Quais especialidades médicas estão disponíveis na clínica?</div>
-        <div class="faq-answer">Resposta: Oferecemos uma variedade de especialidades médicas, incluindo pediatria, ginecologia, cardiologia, ortopedia, dermatologia, entre outras.</div>
-      </div><br>
+        <div class="faq-question">Pergunta: Quais especialidades médicas estão disponíveis na clínica?</div> <!-- Pergunta -->
+        <div class="faq-answer">Resposta: Oferecemos uma variedade de especialidades médicas, incluindo pediatria, ginecologia, cardiologia, ortopedia, dermatologia, entre outras.</div> <!-- Resposta -->
+      </div> <!-- Fim da div de pergunta e resposta -->
+      <br> <!-- Quebra de linha -->
       <!-- Mais perguntas e respostas podem ser adicionadas aqui -->
-    </section>
-  </main>
-   
-  <footer>
+    </section> <!-- Fim da seção de FAQ -->
+  </main> <!-- Fim do elemento principal da página -->
+  <footer> <!-- Rodapé da página -->
     <!-- Rodapé -->
-  </footer>
-  <script src="tema.js"></script>
+  </footer> <!-- Fim do rodapé da página -->
+  <script src="tema.js"></script> <!-- Importa um script para funcionalidade de alternar tema -->
   <script>
     // Script para mostrar/ocultar respostas das perguntas
-    const faqQuestions = document.querySelectorAll('.faq-question');
-    faqQuestions.forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        answer.classList.toggle('faq-answer-show');
+    const faqQuestions = document.querySelectorAll('.faq-question'); // Seleciona todas as perguntas da FAQ
+    faqQuestions.forEach(question => { // Para cada pergunta
+      question.addEventListener('click', () => { // Adiciona um evento de clique
+        const answer = question.nextElementSibling; // Seleciona a próxima div, que contém a resposta
+        answer.classList.toggle('faq-answer-show'); // Alterna a classe para mostrar ou ocultar a resposta
       });
     });
-  </script>
+  </script> <!-- Fim do script para mostrar/ocultar respostas das perguntas -->
 </body>
 </html>
+```
