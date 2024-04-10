@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meu Site</title>
+    <style>
+        .tema-padrao {
+            /* Estilos para o tema padrão */
+            background-color: #fff;
+            color: #333;
+        }
+
+        .tema-escuro {
+            /* Estilos para o tema escuro */
+            background-color: #333;
+            color: #fff;
+        }
+    </style>
+</head>
+<body class="tema-padrao">
+    <button onclick="alternarTema()">Mudar Tema</button>
+    <h1>Meu Site</h1>
+    <p>Conteúdo do site...</p>
+
+    <script>
+        function alternarTema() {
+            const body = document.body;
+            body.classList.toggle('tema-escuro');
+        }
+    </script>
+</body>
+</html>
