@@ -9,16 +9,20 @@
             /* Estilos para o tema padrão */
             background-color: #fff;
             color: #333;
+            transition: background-color 0.3s ease;
         }
 
         .tema-escuro {
             /* Estilos para o tema escuro */
             background-color: #333;
             color: #fff;
+            transition: background-color 0.3s ease;
         }
     </style>
 </head>
 <body class="tema-padrao">
+    <img src="../images/image1.png" alt="" id="imagem">
+
     <button onclick="alternarTema()">Mudar Tema</button>
     <h1>Meu Site</h1>
     <p>Conteúdo do site...</p>
@@ -27,6 +31,27 @@
         function alternarTema() {
             const body = document.body;
             body.classList.toggle('tema-escuro');
+
+            var imagem = document.getElementById('imagem');
+            img.src = '../images/logo_clinicor noite.png';
+        }
+    </script>
+</body>
+
+<body class="tema-padrao">
+    <img src="../images/image1.png" alt="" id="imagem">
+
+    <button onclick="alternarTema()">Mudar Tema</button>
+    <h1>Meu Site</h1>
+    <p>Conteúdo do site...</p>
+
+    <script>
+        function alternarTema() {
+            const body = document.body;
+            body.classList.toggle('tema-escuro');
+
+            var imagem = document.getElementById('imagem');
+            imagem.src = '../images/logo_clinicor noite.png'; // Corrigido para "imagem.src"
         }
     </script>
 </body>
