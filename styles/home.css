@@ -82,7 +82,7 @@
   }
 
   /* Estilos para o rodapé (todos aqueles que começam com o nome "footer" pertencem ao rodapé) */
-  footer {
+  footer { 
     background-color: #525252;
     position: relative;
     width: 100%;
