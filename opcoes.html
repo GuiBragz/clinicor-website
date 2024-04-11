@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Opções</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+<style>
+    body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    }
+
+    .container {
+    text-align: center;
+    }
+
+    .button {
+    background-color: #8E1818; /* Cinza */
+    border: none;
+    color: white;
+    padding: 15px 32px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: color 0.3s ease-in-out;
+    }
+
+    .button:hover {
+    background-color: #737373; /* Cinza um pouco mais escuro */
+    }
+
+    .button.clicked {
+    color: black; /* Altera a cor do texto para preto quando clicado */
+    }
+</style>
+</head>
+<body>
+<header> <!-- Cabeçalho da página -->
+    <div class="navbar"> <!-- Barra de navegação -->
+      <div class="logo"> <!-- Div para o logotipo -->
+        <a href="home.html"><img src="images/logo_clinicor-300x98.png"></a> <!-- Link para a página inicial com o logotipo -->
+      </div>
+      <div> <!-- Div para outros elementos da barra de navegação -->
+        <button id="alternar-tema"> <!-- Botão para alternar entre temas (claro/escuro) -->
+          <i id="icone-tema" class="fas fa-sun"></i> <!-- Ícone do tema (sol) -->
+        </button>
+        <!-- Links do menu -->
+        <a href="home.html" class="button" id="link-home">HOME</a>
+        <a href="exames.html" class="button" id="link-exames">EXAMES</a>
+        <a href="convenios.html" class="button" id="link-convenios">CONVÊNIOS</a>
+        <a href="medicos.html" class="button" id="link-medicos">MÉDICOS</a>
+        <a href="especialidades.html" class="button" id="link-especialidades">ESPECIALIDADES</a>
+        <a href="fale_conosco.html" class="button" id="link-fale-conosco">FALE CONOSCO</a>
+        <a href="aclinica.html" class="button" id="link-aclinica">A CLINICA</a>
+      </div>
+    </div>
+</header> <!-- Fim do cabeçalho da página -->
+<div class="container">
+    <button class="button" onclick="pegarExame()">Pegar Exame</button>
+    <button class="button" onclick="marcar()">Marcar</button>
+    <button class="button" onclick="remarcar()">Remarcar</button>
+    <button class="button" onclick="desmarcar()">Desmarcar</button>
+  </div>
+</body>
+</html>
