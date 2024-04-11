@@ -55,12 +55,13 @@ body {
     margin-left: 130px;
     text-decoration: none;
     font-size: 20px;
-    color: #FEA625;
-    transition: 0.5s ease;
+    color: #ffffff;
+    transition: 0.2s ease;
 }
 
 .link a:hover{
-    color: white;
+    color: #FEA625;
+    border-bottom: 5px solid #FEA625;
 }
 
 html, body {
