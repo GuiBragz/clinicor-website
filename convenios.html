@@ -7,6 +7,51 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
 
+<style>
+  body{
+    background-image: url(images/convenios_background.jpg);/* background da página */
+    background-repeat: no-repeat;
+    background-size: cover;
+  }
+  .logo-container{ /* caixa cinza que redireciona para os sites dos convenios */
+  margin-top: 10px;
+  margin-bottom: 20px;
+  margin-right: 20px;
+  margin-left: 20px;
+  position: relative;
+  top: 100px;
+  background-color: #ccc;
+  border-radius: 25px;
+  padding: 25px;
+  display: inline-block;
+}
+.convenio{ /* imagem que fica dentro da logo-container */
+  width: 200px;
+  height: 100px;
+  
+}
+.conveniodiv{ /* div invisivel que centraliza e ordena os convenios */
+  margin: 0 auto;
+  margin-top: 150px;
+  background-color: rgba(0, 0, 0, 0.5);
+  justify-content: center;
+  width: 882px;
+  height: 750px;
+  border-radius: 15px;
+}
+footer{ /* parte escura do rodapé */
+  background-color: #525252;
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  color: #fff;
+  min-height: 60px;
+  padding: 0;
+  margin: 0;
+}
+
+</style>
+
 </head>
       <header>
         <div class="navebar">
@@ -29,10 +74,13 @@
           </div>
         </div>
       </header>
-      <div class="conveniodiv">
-        <div class="logo-container">
+
+      
+
+      <div class="conveniodiv"><!--div invisivel que centraliza e ordena os convenios -->
+        <div class="logo-container"><!--caixa cinza que redireciona para os sites dos convenios -->
           <a href="https://www.unimedrecife.com.br/" target="_blank">
-            <img src="images/logo-convenios/unimed-logo.png" alt="image/png" class="convenio">
+            <img src="images/logo-convenios/unimed-logo.png" alt="image/png" class="convenio"><!--imagem que fica dentro da logo-container -->
           </a>
         </div>
       
@@ -81,6 +129,9 @@
 
         <script src="tema.js"></script>
       
-      
+      <footer></footer> <!--parte escura do rodapé -->
 </body>
+
+  
+
 </html>
