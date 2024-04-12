@@ -5,6 +5,7 @@ body {
     width: 100%;
     margin: 0;
     padding: 0;
+    margin-bottom: 810px;
     transition: background-image 0.5s ease;
 }
 
@@ -122,21 +123,58 @@ body {
 }
 
 .redes {
+    white-space: nowrap;
     position: absolute;
     font-size: 40px;
     top: 620px;
-    left: 1100px;
+    left: 60%;
+
 }
 
 .redes a {
-    text-decoration: none;
     color: #A93A2F;
     margin: 10px;
     transition: color 0.5s ease;
+}
+
+.redes b {
+    font-size: 25px;
+    color:#FEA625;
 }
 
 .redes a:hover {
     background-color: #FEA625;
     border-radius: 30px;
     padding: 5px;
+}
+
+.info {
+    position: absolute;
+    background-color:#A93A2F;
+    margin-top: 580px;
+    width: 35%;
+    height: 200px;
+    border-radius: 10px;
+}
+
+.info p {
+    font-size: 16px;
+    text-align: right;
+    justify-content: flex-end;
+    margin-right: 50px;
+    margin-left: 100px;
+    color: white;
+}
+
+.mapa {
+    position: absolute;
+    background-color: #A93A2F;
+    margin-top: 580px;
+    margin-left: 35%;
+    width: 65%;
+    height: 200px;
+}
+
+.rodape {
+    margin-top: 350px;
 }
