@@ -92,6 +92,101 @@
         </div>
     </div>
 </header>
+<!--Remarcar a consulta ja marcada -->
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLINICOR - Fale Conosco</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            gap: 20px;
+            padding: 20px;
+            margin-top: 200px; /* ajuste conforme necessário */
+            margin-left: -1400px; /* ajuste conforme necessário */
+    background-color: #8E1818;
+        }
+
+        .option-container, .option-container2 {
+            text-align: left;
+            padding: 10px;
+            border-radius: 8px;
+            background-color: #ffffff;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        select, input {
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .button-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .button {
+            background-color: #8E1818;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #737373;
+        }
+
+    </style>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <a href="home.html"><img src="images/logo_clinicor-300x98.png"></a>
+
+        </div>
+        <div>
+            <button id="alternar-tema">
+                <i id="icone-tema" class="fas fa-sun"></i>
+            </button>
+            <a href="home.html" class="button" id="link-home">HOME</a>
+            <a href="exames.html" class="button" id="link-exames">EXAMES</a>
+            <a href="convenios.html" class="button" id="link-convenios">CONVÊNIOS</a>
+            <a href="medicos.html" class="button" id="link-medicos">MÉDICOS</a>
+            <a href="especialidades.html" class="button" id="link-especialidades">ESPECIALIDADES</a>
+            <a href="fale_conosco.html" class="button" id="link-fale-conosco">FALE CONOSCO</a>
+            <a href="a_clinica.html" class="button" id="link-a-clinica">A CLINICA</a>
+            <a href="opcoes.html" class="button" id="link-opcoes">VOLTA</a>
+        </div>
+    </div>
+</header>
 <!-- opções de marcar especialista,dia,hora,medico,add informações de quem irar para consulta e meio de contato para confirmação do exame e forma de pagamento-->
 <div class="container">
     <div class="option-container">
@@ -116,7 +211,7 @@
         </select>
     </div> 
     <div class="option-container">
-        <p class="option-label">Selecione o dia:</p>
+        <p class="option-label">Selecione o dia de remarcação:</p>
         <select name="dia" id="dia">
             <option value="segunda">Segunda-feira</option>
             <option value="terca">Terça-feira</option>
@@ -178,17 +273,11 @@
 
         <p class="option-label">Telefone:</p>
         <input type="tel" name="telefone" id="telefone">
-
-        <p class="option-label">Forma de pagamento:</p>
-        <select name="forma_pagamento" id="forma_pagamento">
-            <option value="pix">PIX</option>
-            <option value="cartao_credito">Cartão de Crédito</option>
-            <option value="cartao_debito">Cartão de Débito</option>
-        </select>
-
+        <p class="option-label">Motivo da remarcação:</p>
+        <input type="tel" name="Motivo_da_Remarcação" id="Motivo_da_Remarcação">
         <p class="option-label">Confirmação:</p>
         <input type="checkbox" name="confirmacao" id="confirmacao">
-        <label for="confirmacao">Estou ciente de que, em caso de falta sem justificativa, precisarei pagar uma taxa X.</label>
+        <label for="confirmacao">Estou ciente que estou alterando o dia da consulta</label>
     </div>
 
     <div class="button-container">
