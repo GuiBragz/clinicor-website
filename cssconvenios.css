@@ -19,6 +19,12 @@ body{
   border-radius: 25px;
   padding: 25px;
 }
+
+.logo-container :hover{ /* caixa cinza que redireciona para os sites dos convenios */
+  transform: scale(1.2);
+  transition: transform 0.3s ease;
+}
+
 .convenio{ /* imagem que fica dentro da logo-container */
   width: 200px;
   height: 100px;
