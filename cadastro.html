@@ -21,6 +21,7 @@
       <h1>Cadastrar</h1><br>
         <form action="back-end/create.php" method="post">
             <label>&ensp;Nome Completo<br>
+            <input type="hidden" name="pagina_origem" value="cadastro">
             <input type="text" name="nome-completo" class="input-campo" id="input-nome-completo" required size="28" placeholder="  exmp clinicor"></label><br><br>
             <label>&ensp;CPF<br>
             <input type="text" name="cpf" class="input-campo" required id="input-cpf" maxlength="14" size="28" placeholder="  000.000.000-00"></label><br><br>
