@@ -40,3 +40,8 @@ li:hover{
 .clear::after{
     clear: left;
 }
+.subtitle{
+    text-align: center;
+    color: #A93A2F;
+    font-size: larger;
+}
