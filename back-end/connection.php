@@ -13,7 +13,7 @@
         if (!$conexao) {
             die("Conexao falhou: " . mysqli_connect_error());
         } else {
-            echo "Conexão com o banco de dados estabelecida. <br>";
+            
             return $conexao;
         }
     }

@@ -35,7 +35,8 @@
             echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
             echo "<script>window.location.href = '../login.html';</script>";
         } else {
-            echo "Ocorreu um erro. Tente novamente em alguns instantes.";
+            echo "<script>window.alert('Ocorreu um erro tente novamente em instantes!');</script>";
+            echo "<script>window.location.href = '../cadastro.html';</script>";
         }
 
         $stmt->close();

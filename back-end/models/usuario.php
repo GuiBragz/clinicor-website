@@ -17,7 +17,7 @@ class Usuario {
         $this->senha = $senha;
         $this->tipo = $tipo;
         // Convertendo a data de registro para um objeto DateTime
-        $this->dataRegistro = new DateTime($dataRegistro);
+        $this->dataRegistro = $dataRegistro;
     }
 
     // Getters
