@@ -1,19 +1,23 @@
 body{
-    background-image: url(../images/convenios_background.jpg);/* background da página */
     background-repeat: no-repeat;
     background-size: cover;
+    height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 850px;
 }
 .logo-container{ /* caixa cinza que redireciona para os sites dos convenios */
-  margin-top: 10px;
-  margin-bottom: 20px;
   margin-right: 20px;
   margin-left: 20px;
+  margin-top: 10px;
   position: relative;
-  top: 100px;
   background-color: #ccc;
   border-radius: 25px;
   padding: 25px;
-  display: inline-block;
 }
 .convenio{ /* imagem que fica dentro da logo-container */
   width: 200px;
@@ -21,11 +25,50 @@ body{
   
 }
 .conveniodiv{ /* div invisivel que centraliza e ordena os convenios */
-  margin: 0 auto;
-  margin-top: 60px;
-  background-color: rgba(0, 0, 0, 0.3);
+  position: absolute;
+  margin-top: 950px;
+  background-color: rgba(255, 255, 255, 0.3);
   justify-content: center;
-  width: 882px;
+  width: 70%;
   height: 750px;
   border-radius: 15px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+  padding: 0;
+  flex-wrap: wrap;
+}
+
+/* Adiciona a imagem de fundo do login/cadastro */
+.fundo {
+  position: fixed;
+  top: 0; left: 0; /* Põe a imagem sem bordas na pagina */
+  width: 100%; height: 100%;
+  background-image: url('../images/login-background.jpg'); /* URL da imagem, o "../" serve para falar que o conteúdo está em uma pasta anterior ao arquivo CSS */
+  background-size: cover; /* ajusta a imagem para cobrir a página */
+  z-index: -1; /* Layer da imagem */
+  filter: blur(3px);
+}
+
+/* Adiciona o fundo escuro a imagem de fundo */
+.fundo::before {
+  content: ''; /* Serve apenas para o CSS não indentificar o fundo como um elemento vazio */
+  position: absolute;
+  top: 0; left: 0; /* Põe o fundo sem bordas na pagina */
+  width: 100%; height: 100%; 
+  background-color: black; /* Cor do fundo */
+  z-index: -1; /* Layer do fundo */
+  opacity: 60%; /* Muda a opacidade do fundo escuro */
+}
+
+@media screen and (max-width: 843px) {
+  body {
+    margin-bottom: 1900px;
+  }
+
+  .conveniodiv {
+    height: 1800px;
+    margin-top: 2000px;
+  }
 }

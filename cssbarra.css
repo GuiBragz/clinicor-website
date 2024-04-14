@@ -1,0 +1,144 @@
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    border-top: 10px solid #A93A2F;
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+    margin: 0px;
+    padding: 0px;
+    transition: 0.3s ease;
+
+}
+
+.navebar {
+    position: absolute;
+    width: 100%; 
+    top: 0px;
+    left: 0px;
+}
+
+.temanave {
+    position: relative;
+    float: right;
+    margin-top: 25px;
+    margin-right: 20px;
+    z-index: 2;
+}
+
+.temanave:hover{
+    cursor: pointer;
+}
+
+.temanave img {
+    height: 40px;
+    margin-left: 15px;
+}
+
+.img {
+    position: fixed;
+    width: 180px;
+    padding-left: 30px;
+    margin-top: 15px;
+}
+
+.img:hover {
+    cursor: pointer;
+}
+
+.link {
+    position: fixed;
+    margin-top: 30px;
+    margin-left: 260px;
+    z-index: 3;
+}
+
+.link a{
+    margin-left: 130px;
+    text-decoration: none;
+    font-size: 20px;
+    color: #ffffff;
+    transition: 0.2s ease;
+}
+
+.link a:hover{
+    color: #FEA625;
+    border-bottom: 5px solid #FEA625;
+}
+
+html, body {
+    overflow: hidden;
+    height: 100%;
+}
+
+.tema-escuro {
+    background-color: rgba(0, 0, 0, 0.2);
+    backdrop-filter: blur(2px);
+
+    }
+    
+.linkEscuro a{
+    color: #FEA625;
+    }
+
+.linkEscuro a:hover{
+    color: white;
+    }
+
+@media screen and (max-width: 860px) {
+    .link {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .link {
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 1300px) {
+    .link {
+        margin-left: 240px;
+    }
+}
+
+@media screen and (max-width: 1290px) {
+    .link {
+        margin-left: 240px;
+    }
+
+    .link a{
+        margin-left: 100px;
+
+    }
+}
+
+@media screen and (max-width: 1170px) {
+    .link {
+        margin-left: 200px;
+    }
+
+    .link a{
+        margin-left: 80px;
+
+    }
+}
+
+@media screen and (max-width: 1050px) {
+        .link {
+        margin-left: 200px;
+    }
+    .link a{
+        margin-left: 50px;
+
+    }
+}
+
+@media screen and (max-width: 925px) {
+        .link {
+        margin-left: 250px;
+    }
+    .link a{
+        margin-left: 20px;
+
+    }
+}

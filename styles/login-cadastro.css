@@ -44,8 +44,6 @@ a {
     height: 130px;
     z-index: 2;
     top: 4%;
-    left: 50%;
-    transform: translate(-50%, -50%);
     display: none;
 }
 
