@@ -2,18 +2,16 @@
     class Usuario {
         // Atributos.
         private $usuarioid;
-        private $nome;
-        private $cpf;
+
         private $email;
         private $senha;
         private $tipo;
         private $dataRegistro;
 
         // Método construtor.
-        public function __construct($usuarioid, $nome, $cpf, $email, $senha, $tipo, $dataRegistro) {
+        public function __construct($usuarioid, $email, $senha, $tipo, $dataRegistro) {
             $this->usuarioid = $usuarioid;
-            $this->nome = $nome;
-            $this->cpf = $cpf;
+
             $this->email = $email;
             $this->senha = $senha;
             $this->tipo = $tipo;
@@ -26,13 +24,9 @@
             return $this->usuarioid;
         }
 
-        public function getNome() {
-            return $this->nome;
-        }
 
-        public function getCpf() {
-            return $this->cpf;
-        }
+
+
 
         public function getEmail() {
             return $this->email;
@@ -54,13 +48,9 @@
         public function setusuarioid($usuarioid) {
         $this->usuarioid = $usuarioid;
         }
-        public function setNome($nome) {
-            $this->nome = $nome;
-        }
 
-        public function setCpf($cpf) {
-            $this->cpf = $cpf;
-        }
+
+
 
         public function setEmail($email) {
             $this->email = $email;
@@ -81,8 +71,6 @@
         // Método para exibir informações do usuário.
         public function exibirInfo() {
             echo "Usuarioid: ". $this->usuarioid . "<br>";
-            echo "Nome: " . $this->nome . "<br>";
-            echo "CPF: " . $this->cpf . "<br>";
             echo "Email: " . $this->email . "<br>";
             echo "Tipo: " . $this->tipo . "<br>";
         
