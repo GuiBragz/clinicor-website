@@ -1,0 +1,48 @@
+create database ClinicorDB;
+use ClinicorDB;
+
+CREATE TABLE PlanosSaude (
+    PlanoSaudeID INT PRIMARY KEY,
+    NomePlano VARCHAR(100),
+    Cobertura VARCHAR(255)
+);
+
+CREATE TABLE Medicos (
+    MedicoID INT PRIMARY KEY,
+    Nome VARCHAR(50),
+    Especialidade VARCHAR(50),
+    HorarioAtendimento VARCHAR(100),
+    NumConsultasRealizadas INT
+);
+
+
+CREATE TABLE Consultas (
+    ConsultaID INT PRIMARY KEY,
+    DataHora DATETIME,
+    MedicoID INT,
+    PacienteID INT,
+    Status VARCHAR(20),
+    FOREIGN KEY (MedicoID) REFERENCES Medicos(MedicoID),
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
+);
+
+
+CREATE TABLE Usuarios (
+    UsuarioID INT PRIMARY KEY auto_increment,
+    Nome VARCHAR(50) not null,
+    CPF VARCHAR (11) not null, 
+     Email VARCHAR(100) not null,
+    Senha VARCHAR(50)not null,
+    Tipo VARCHAR(20) ,
+    DataRegistro DATE
+    );
+
+
+CREATE TABLE HistoricoConsultas (
+    HistoricoID INT PRIMARY KEY,
+    ConsultaID INT,
+    Diagnostico TEXT,
+    ReceitaMedica TEXT,
+    Observacoes TEXT,
+    FOREIGN KEY (ConsultaID) REFERENCES Consultas(ConsultaID)
+);
