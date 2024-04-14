@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="cssbarra.css">
+    <title>Barra Home</title>
+</head>
+<body>
+    <form action="" method="get">
+        <div class="navebar">
+            <div class="borda"></div>
+            <div>
+                <a href="home.html" target="_top">
+                    <img src="images/logo_clinicor dia.png" alt="logo clinicor" class="img" id="imagem"> 
+                </a>
+            </div>
+            <div class="link" id="link">
+                <a href="home.html" target="_top"><b><i>HOME</i></b></a>
+                <a href="exame.html" target="_top"><b><i>EXAMES</i></b></a>
+                <a href="convenios.html" target="_top"><b><i>FALE CONOSCO</i></b></a>
+            </div>
+            <div class="temanave">
+                    <img src="images/icon/sol tema.png" alt="tema" id="tema" class="tema" onclick="mudarTema()">
+                    <img src="images/icon/barra l dia.png" alt="nave bar" id="navebar" onmouseover="mudarImagem()" onmouseout="restaurarImagem()">
+            </div>
+        </div>
+
+        <script src="mudarTema.js"></script>
+    </form>
+</body>
+</html>
