@@ -51,7 +51,7 @@ body{
   position: fixed;
   top: 0; left: 0; /* Põe a imagem sem bordas na pagina */
   width: 100%; height: 100%;
-  background-image: url('../images/login-background.jpg'); /* URL da imagem, o "../" serve para falar que o conteúdo está em uma pasta anterior ao arquivo CSS */
+  background-image: url('images/login-background.jpg'); /* URL da imagem, o "../" serve para falar que o conteúdo está em uma pasta anterior ao arquivo CSS */
   background-size: cover; /* ajusta a imagem para cobrir a página */
   z-index: -1; /* Layer da imagem */
   filter: blur(3px);
