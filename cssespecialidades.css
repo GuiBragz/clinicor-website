@@ -1,4 +1,6 @@
 body{
+    background-image: url(images/home-background.png);
+    background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
     padding: 0;
@@ -6,10 +8,13 @@ body{
 }
 .container {
     display: flex;
-    justify-content: space-between;
+    flex-wrap: wrap;
+    justify-content: center; /* Alinha os itens à esquerda */
     margin: 24px;
+    margin-left: 20px;
+    gap: 10px;
 }
-.title {
+.texto {
     text-align: center;
     color: #A93A2F;
     font-family: Arial, Helvetica, sans-serif;
@@ -17,34 +22,38 @@ body{
     border-radius: 20px;
     border: 2px solid ;
 }
-li{
-    text-align: center;
-    list-style-type: none;
-    background-color: #A93A2F;
-    width: 35%;
-    margin: 10px;
-    padding: 24px;
-    border-radius: 20px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-li a{
-    text-align: center;
-    font-size: 28px;
-    text-decoration: none;
-    color: white; 
-    width: 80px;
-    display: block ;
-    width: 105%;
-    height: 150%;
-}
-li:hover{
-    background-color: #690f07;
-}
-.clear::after{
-    clear: left;
-}
+
 .subtitle{
     text-align: center;
-    color: #A93A2F;
+    color:#690f07;
     font-size: larger;
+}
+
+.espec {
+    padding: 20px;
+    text-align: center;
+    background-color: #ffffff;
+    width: 200px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    font-size: 16px;
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.5);
+}
+
+.espec a {
+    
+    padding: 20px;
+    color: #690f07;
+    line-height: 1.5; /* Define a altura da linha para criar espaço entre as linhas */
+    display: block; /* Para garantir que cada link ocupe uma linha inteira */
+    text-decoration: none;
+}
+
+.cirurgiageral a{
+    font-size: 55px;
+}
+
+img {
+    width: 150px;
+    height: 150px;
 }
