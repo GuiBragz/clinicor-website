@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLINICOR - Fale Conosco</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            border-top: 10px solid #A93A2F;
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+            margin: 0px;
+            padding: 0px;
+            transition: 0.3s ease;
+        }
+
+        .navebar {
+            position: absolute;
+            width: 100%; 
+            top: 0px;
+            left: 0px;
+        }
+
+        .temanave {
+            position: relative;
+            float: right;
+            margin-top: 25px;
+            margin-right: 20px;
+            z-index: 2;
+        }
+
+        .temanave:hover {
+            cursor: pointer;
+        }
+
+        .temanave img {
+            height: 40px;
+            margin-left: 15px;
+        }
+
+        .img {
+            position: fixed;
+            width: 180px;
+            padding-left: 30px;
+            margin-top: 15px;
+        }
+
+        .img:hover {
+            cursor: pointer;
+        }
+
+        .link {
+            position: fixed;
+            margin-top: 30px;
+            margin-left: 260px;
+            z-index: 3;
+        }
+
+        .link a {
+            margin-left: 130px;
+            text-decoration: none;
+            font-size: 20px;
+            color: #ffffff;
+            transition: 0.2s ease;
+        }
+
+        .link a:hover {
+            color: #FEA625;
+            border-bottom: 5px solid #FEA625;
+        }
+
+        html, body {
+            overflow: hidden;
+            height: 100%;
+        }
+
+        .tema-escuro {
+            background-color: rgba(0, 0, 0, 0.2);
+            backdrop-filter: blur(2px);
+        }
+        
+        .linkEscuro a {
+            color: #FEA625;
+        }
+
+        .linkEscuro a:hover {
+            color: white;
+        }
+
+        @media screen and (max-width: 550px) {
+            .link {
+                display: none;
+            }
+        }
+
+        .button {
+            background-color: #8E1818;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #737373;
+        }
+
+        .container {
+            display: flex;
+            justify-content: flex-start;
+            gap: 20px;
+            padding: 20px;
+            margin-top: -14%; /* ajuste conforme necessário */
+        }
+
+        .box {
+            width: 150px;
+            height: 150px;
+            background-color: #8E1818;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 1px;
+            font-size: 12px;
+            flex-direction: column;
+            padding: 16px;
+            margin-top: 157px; /* ajuste conforme necessário */
+            margin-left: -20px; /* ajuste conforme necessário */
+            position: relative;
+        }
+
+        .container:nth-child(2) {
+            margin-left: 0px;
+            margin-top: 0px;
+        }
+
+        .box input[type="checkbox"] {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            z-index: 1;
+        }
+        .delete-box {
+            position: fixed;
+            top: 170px;
+            right: 40px;
+            width: 70px;
+            height: 60px;
+            background-color: #8E1818;
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 9999;
+        }
+
+        .delete-icon {
+            color: white;
+            font-size: 24px;
+        }
+        .message {
+            position: fixed;
+            top: 190%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background-color: rgba(0, 0, 0, 0.8);
+            color: white;
+            padding: 20px;
+            border-radius: 8px;
+            display: none;
+            z-index: 9999;
+        }
+
+        .button-confirm {
+            margin-top: 10px;
+            background-color: #FEA625;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button-confirm:hover {
+            background-color: #FFBF00;
+        }
+    </style>
+</head>
+<body>
+<header>
+    <div class="navbar">
+        <div class="logo">
+            <a href="home.html"><img src="images/logo_clinicor-300x98.png"></a>
+        </div>
+        <div>
+            <button id="alternar-tema">
+                <i id="icone-tema" class="fas fa-sun"></i>
+            </button>
+            <a href="home.html" class="button" id="link-home">HOME</a>
+            <a href="exames.html" class="button" id="link-exames">EXAMES</a>
+            <a href="convenios.html" class="button" id="link-convenios">CONVÊNIOS</a>
+            <a href="medicos.html" class="button" id="link-medicos">MÉDICOS</a>
+            <a href="especialidades.html" class="button" id="link-especialidades">ESPECIALIDADES</a>
+            <a href="fale_conosco.html" class="button" id="link-fale-conosco">FALE CONOSCO</a>
+            <a href="a_clinica.html" class="button" id="link-a-clinica">A CLINICA</a>
+            <a href="opcoes.html" class="button" id="link-opcoes">VOLTA</a>
+            <div class="delete-box" id="deleteBox">
+                <i class="fas fa-trash-alt delete-icon"></i>
+            </div>
+            <div class="message" id="confirmMessage">
+                <p>Tem certeza disso?</p>
+                <button class="button-confirm" id="confirmYes">Sim</button>
+                <button class="button-confirm" id="confirmNo">Não</button>
+            </div>
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    <div class="box">
+        <h2>Dia da consulta</h2>
+        <p>08/10/24.</p>
+    </div>
+    <div class="box">
+        <input type="checkbox">
+        <h2>Hora</h2>
+        <p>10:00</p>
+    </div>
+</div>
+
+<div class="container">
+    <div class="box">
+        <h2>Nome do Médico</h2>
+        <p>Fulano(a)X</p>
+    </div>
+    <div class="box">
+        <h2>Especialidade</h2>
+        <p>Cardiologia</p>
+    </div>
+</div>
+
+<script>
+    const deleteBox = document.getElementById('deleteBox');
+    const messageBox = document.getElementById('confirmMessage');
+    const confirmYes = document.getElementById('confirmYes');
+    const confirmNo = document.getElementById('confirmNo');
+    const checkbox = document.querySelector('.box input[type="checkbox"]');
+
+    deleteBox.addEventListener('click', () => {
+        if (checkbox.checked) {
+            messageBox.style.display = 'block';
+        }
+    });
+
+    confirmYes.addEventListener('click', () => {
+        alert('Item deletado!');
+        messageBox.style.display = 'none';
+    });
+
+    confirmNo.addEventListener('click', () => {
+        messageBox.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>
