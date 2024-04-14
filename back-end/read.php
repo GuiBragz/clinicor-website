@@ -41,8 +41,6 @@
             // Instancia um objeto Usuario com os dados obtidos
             $usuario = new Usuario(
             $dadosUsuario['UsuarioID'],
-            $dadosUsuario['Nome'],
-            $dadosUsuario['CPF'],
             $dadosUsuario['Email'],
             $dadosUsuario['Senha'],
             $dadosUsuario['Tipo'],
@@ -60,7 +58,7 @@
 
     // Função para realizar o login
     function login($email, $senha){
-
+        
         // Se as credenciais estiverem corretas, busca o usuário e redireciona para a página home
         if(verificarCredenciaisNoBanco($email, $senha)){
             $usuario = buscarUsuarioPorEmail($email);
