@@ -29,7 +29,7 @@
         }
 
         // Funcção para inserir dados na tabela usuários.
-        $stmt = $conexao->prepare("INSERT INTO usuarios (email, senha, tipo, DataRegistro) VALUES (?, ?, 'funcionario', NOW())");
+        $stmt = $conexao->prepare("INSERT INTO usuarios (email, senha, tipo, DataRegistro) VALUES (?, ?, 'paciente', NOW())");
         // Preenche os espaços em branco (as interrogações) com os valores reais.
         $stmt->bind_param("ss", $email, $senha);
 
