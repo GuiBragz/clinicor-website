@@ -55,12 +55,12 @@ body {
     margin-left: 130px;
     text-decoration: none;
     font-size: 20px;
-    color: #ffffff;
+    color: #FEA625;
     transition: 0.2s ease;
 }
 
 .link a:hover{
-    color: #FEA625;
+    color: #ffd08a;
     border-bottom: 5px solid #FEA625;
 }
 
@@ -76,11 +76,11 @@ html, body {
     }
     
 .linkEscuro a{
-    color: #FEA625;
+    color: #ffffff;
     }
 
 .linkEscuro a:hover{
-    color: white;
+    color: #FEA625;
     }
 
 @media screen and (max-width: 860px) {

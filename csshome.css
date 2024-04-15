@@ -37,6 +37,8 @@ body {
 }
 
 .titulo {
+    font-weight: bolder;
+    text-transform: uppercase;
     color: #FEA625;
     font-size: 40px;
 }
