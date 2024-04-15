@@ -6,6 +6,7 @@ var especialidades = document.querySelectorAll('.especialidades');
 var convenios = document.querySelectorAll('.convenios');
 var medicos = document.querySelectorAll('.medicos');
 var rede = document.querySelectorAll('.rede');
+var rodap = document.querySelectorAll('.deadsec');
 
 // Função para atualizar o tema da página
 function atualizarTema() {
@@ -27,6 +28,9 @@ function atualizarTema() {
         rede.forEach(function(rede) {
             rede.style.color = 'white';
         });
+        rodap.forEach(function(rodap) {
+            rodap.style.color = 'white';
+        });
     } else {
         document.body.style.backgroundImage = 'url(images/home-background.png)';
         elementos.forEach(function(elemento) {
@@ -44,6 +48,9 @@ function atualizarTema() {
         });
         rede.forEach(function(rede) {
             rede.style.color = '#A93A2F';
+        });
+        rodap.forEach(function(rodap) {
+            rodap.style.color = 'black';
         });
     }
 }
