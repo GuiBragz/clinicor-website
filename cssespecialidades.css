@@ -5,6 +5,7 @@ body{
     margin: 0;
     padding: 0;
     flex-wrap: wrap;
+    transition: background-image 0.5s ease;
 }
 .container {
     display: flex;
@@ -13,7 +14,14 @@ body{
     margin: 24px;
     margin-left: 20px;
     gap: 10px;
+    transition: transform 0.3s ease;
 }
+
+.container :hover {
+    transform: scale(1.1);
+    transition: transform 0.3s ease;
+}
+
 .texto {
     text-align: center;
     color: #A93A2F;
@@ -21,12 +29,14 @@ body{
     font-size: larger;
     border-radius: 20px;
     border: 2px solid ;
+    transition: background-color 0.3s ease;
 }
 
-.subtitle{
+.convenios{
     text-align: center;
     color:#690f07;
     font-size: larger;
+    transition: background-color 0.3s ease;
 }
 
 .espec {
@@ -56,4 +66,8 @@ body{
 img {
     width: 150px;
     height: 150px;
+}
+
+.imag:hover {
+    transform: scale(1);
 }
