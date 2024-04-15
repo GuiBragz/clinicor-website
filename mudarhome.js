@@ -7,6 +7,8 @@ var convenios = document.querySelectorAll('.convenios');
 var medicos = document.querySelectorAll('.medicos');
 var rede = document.querySelectorAll('.rede');
 var rodap = document.querySelectorAll('.deadsec');
+var espec = document.querySelectorAll('.espec');
+var link = document.querySelectorAll('.lin');
 
 // Função para atualizar o tema da página
 function atualizarTema() {
@@ -31,6 +33,12 @@ function atualizarTema() {
         rodap.forEach(function(rodap) {
             rodap.style.color = 'white';
         });
+        espec.forEach(function(espec) {
+            espec.style.backgroundColor = 'rgba(0, 0, 0, 0.3)';
+        });
+        link.forEach(function(link) {
+            link.style.color = 'white';
+        });
     } else {
         document.body.style.backgroundImage = 'url(images/home-background.png)';
         elementos.forEach(function(elemento) {
@@ -51,6 +59,12 @@ function atualizarTema() {
         });
         rodap.forEach(function(rodap) {
             rodap.style.color = 'black';
+        });
+        espec.forEach(function(espec) {
+            espec.style.backgroundColor = 'rgba(255, 255, 255, 0.3)';
+        });
+        link.forEach(function(link) {
+            link.style.color = '#A93A2F';
         });
     }
 }
