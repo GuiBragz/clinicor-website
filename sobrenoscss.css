@@ -1,0 +1,42 @@
+.p1 {
+    font-size: 30px;
+    
+}
+.img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%; /* Ajuste conforme necessário */
+    height: 100%; /* Ajuste conforme necessário */
+    background-image: url('caminho/para/sua/imagem.jpg');
+    background-size: cover; /* Para cobrir toda a área */
+    z-index: -1; /* Para colocar atrás do conteúdo */
+    opacity: 0.7; /* Valor de opacidade (70%) */
+}
+/* Estilo geral para os cards */
+.card1, .card2, .card3 {
+    background-color: rgba(239, 13, 13, 0.1);
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(5, 2, 7, 0.1);
+    padding: 20px;
+    margin-bottom: 20px;
+    max-width: 600px; /* Defina a largura máxima desejada */
+    margin-right: auto;
+}
+
+/* Estilo para os títulos dos cards */
+.card1 h1, .card2 h1, .card3 h1 {
+    font-family: 'Arial', sans-serif;
+    font-size: 40px;
+    color: #FEA625;
+    margin-bottom: 10px;
+}
+
+/* Estilo para os textos dos cards */
+.card1 p, .card2 p, .card3 p {
+    font-family: 'Arial', sans-serif;
+    font-size: 18px;
+    color: #666;
+    line-height: 1.5;
+    margin-bottom: 0;
+}

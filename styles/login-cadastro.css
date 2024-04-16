@@ -181,6 +181,18 @@ label{
     border: none;
 }
 
+.butto{
+    font-weight: bold;
+    color: white;
+    border-radius: 18px;
+    border: none;
+    background-color: red;
+    height: 36px;
+    width: 100%;
+    margin-left: 0%;
+    margin-right: 5px;
+}
+
 .cadastro-area{
     white-space: nowrap;
     position: relative;
