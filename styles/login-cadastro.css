@@ -117,9 +117,19 @@ main{
 label{
     font-size: 20px;
 }
+
 .login-area h1{
     color: red;
     font-size: 3em;
+}
+
+#enviado{
+    color: rgb(0, 184, 24);
+    font-size: 3em;
+}
+
+#botao {
+    background-color: rgb(0, 184, 24);
 }
 
 /* cor dos links */

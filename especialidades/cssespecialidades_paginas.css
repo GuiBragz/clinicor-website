@@ -1,15 +1,23 @@
+body {
+  background-image: url(../images/home-background2.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
 .especialidade_title img{ /* mexe com a logo */
     display: block; /* Garante que a imagem seja tratada como bloco */
     margin-left: auto; /* Centraliza horizontalmente */
     margin-right: auto;
     margin-bottom: 20px;
-    margin-top: 250px;
+    margin-top: 70px;
     text-align: center;
   }
   .especialidade_title h1{ /* mexe com o h1  */
     text-align: center;
     font-size: 40px;
-  
   }
   .especialidade_boby{ /* mexe com o paragrafo */
     width: 1000px; /* Define a largura da div para */
@@ -20,15 +28,20 @@
   }
   .especialidade_line-div{ /* mexe com a linha que fica abaixo do h1 */
     width: 100%;
-    max-width: 15rem;
     height: 0.25rem;
     background-color: #8E1818;
     border-radius: 1rem;
     border-color: #8E1818;
     margin-left: auto;
     margin-right: auto;
+    max-width: 17rem;
+    margin-top: -26px;
   }
 
+  img {
+    width: 150px;
+    height: 150px;
+  }
 
 @media screen and (max-width: 1200px){
     .especialidade_boby{ /* mexe com o paragrafo */

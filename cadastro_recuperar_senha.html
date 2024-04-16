@@ -16,13 +16,11 @@
     <main>
 
       <div class="cadastro-area">
-      <h1>Cadastrar</h1><br>
-        <form action="back-end/create.php" method="post">
+      <h1>Seu Email</h1><br>
+        <form action="back-end/recuperadorSenha.php" method="post">
           <div class="homec"><a href="home.html"><img src="images/favicon.ico.png" alt="home"></a></div> <!-- div que vai receber a imagem da home -->
-            <label>&ensp;Senha<br>
-            <input type="password" name="senha" class="input-campo" required id="input-senha" size="28" placeholder="  •••••••"></label><br><br>
-            <label>&ensp;Confirmar Senha<br>
-            <input type="password" name="senha-confirmar" class="input-campo" required id="input-confirmar-senha" size="28"></label><br><br>
+            <label>&ensp;Email<br>
+            <input type="email" name="email" class="input-campo" required id="input-email" size="28" placeholder="  exmp@clinicor.com"></label><br><br>
             <button class="button" type="button"><a href="login.html">Cancelar</a></button>
             <input type="submit" value="Concluir" class="button">
         </form>
