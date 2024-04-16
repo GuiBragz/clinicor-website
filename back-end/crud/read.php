@@ -61,6 +61,23 @@ function buscarUsuarioPorEmail($email) {
     }
 }
 
+function buscarCodigoRecuperacao($CodigoRecuperaSenha) {
+    $conexao = getConnection();
+
+    // Prevenir SQL Injection usando consultas preparadas
+    $stmt = $conexao->prepare("SELECT * FROM Usuarios WHERE CodigoRecuperaSenha = ?");
+    $stmt->bind_param("s", $CodigoRecuperaSenha);
+    $stmt->execute();
+    $resultado = $stmt->get_result();
+    
+    // Verifica se a consulta retornou algum resultado
+    if ($resultado->num_rows > 0) {
+        return true; // Retorna true se encontrar um usuário com o código de recuperação de senha fornecido
+    } else {
+        return false; // Retorna false se não encontrar nenhum usuário com o código de recuperação de senha fornecido
+    }
+}
+
 
 
 ?>

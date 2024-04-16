@@ -31,5 +31,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     // Executa a função de login
     login($email, $senha);
+}else {
+    echo "<script>window.alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
+    echo "<script>window.location.href = '../login.html';</script>";
 }
 ?>
