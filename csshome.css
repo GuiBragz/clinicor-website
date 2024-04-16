@@ -1,5 +1,6 @@
 body {
     background-image: url(images/home-background.png);
+    background-repeat: no-repeat;
     font-family: Arial, Helvetica, sans-serif;
     height: 100%;
     width: 100%;
@@ -54,8 +55,9 @@ body {
 .linha {
  position: absolute;
  text-align: right;
- margin-top: 52px;
- margin-left: 100px;
+ margin-bottom: 500px;
+ top: 354px;
+ left: 140px;
  width: 900px;
  border: none;
  border-top: 7px solid #A93A2F;
@@ -88,7 +90,7 @@ body {
     width: 300px;
     height: auto;
     top: 150px;
-    left: 950px;
+    right: 95px;
     z-index: 2;
     transition: transform 0.3s ease;
 }
@@ -102,7 +104,7 @@ body {
     width: 146px;
     height: auto;
     top: 300px;
-    left: 950px;
+    right: 245px;
     z-index: 2;
     transition: transform 0.3s ease;
 }
@@ -116,7 +118,7 @@ body {
     width: 146px;
     height: auto;
     top: 300px;
-    left: 1104px;
+    right: 95px;
     z-index: 3;
     transition: transform 0.3s ease;
 }
@@ -189,6 +191,7 @@ body {
     background-color: rgba(0, 0, 0, 0.1);
     padding: 20px;
     margin-left: -45px;
+    z-index: 99;
 }
 
 .deadsec a{
