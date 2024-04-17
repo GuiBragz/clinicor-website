@@ -110,4 +110,52 @@
         }
     }
     
+
+    function cadastraPaciente($email, $nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $planoSaudeID){
+        // Criar uma instância da classe Connection
+        $conexao = getConnection();
+        
+        // Verificar se o usuário ou funcionário já existe
+        if(usuarioJaExiste(pacienteJaExiste($conexao, $nome, $foto, $cargo, $setor, $dataContratacao, $salario))) {
+            echo "<script>window.alert('Dados já em uso!');</script>";
+            echo "<script>window.location.href = '../cadastro_user.html';</script>";
+            exit;
+        }else{
+    
+        // Tentar executar as consultas SQL
+        try {
+            // Preparar e executar a primeira consulta SQL para inserir na tabela 'usuarios'
+            $stmt1 = $conexao->prepare("INSERT INTO pacientes (Email, Senha, Tipo, DataRegistro) VALUES (?, ?, 'funcionario', NOW())");
+            $stmt1->bind_param("ss", $email, $senhaCriptografada);
+            $stmt1->execute();
+            
+            // Obter o ID do usuário inserido
+            $usuarioID = $stmt1->insert_id;
+            
+            
+            // Verificar se ambas as consultas foram bem-sucedidas
+            if ($stmt1->affected_rows > 0) {
+                // Redirecionar o usuário para a página de login após o cadastro bem-sucedido
+                echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
+                echo "<script>window.location.href = '../login.html';</script>";
+            } else {
+                // Se alguma das inserções falhar, lançar uma exceção
+                throw new Exception("Erro ao cadastrar funcionário.");
+            }
+        } catch (Exception $e) {
+            // Se ocorrer um erro, mostrar uma mensagem de erro e redirecionar o usuário para a página de cadastro novamente
+            echo "<script>alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
+            echo "<script>window.location.href = '../cadastro_user.html';</script>";
+        }}
+
+
+
+
+    }
+
+
+
+
+
+
 ?>
