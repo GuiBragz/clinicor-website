@@ -111,18 +111,18 @@ p {
 
 @media screen and (max-height: 600px) {
     body {
-        margin: 100px 0;
+        margin: 150px 0;
     }
 }
 
 @media screen and (max-height: 490px) {
     body {
-        margin: 65px 0;
+        margin: 150px 0;
     }
 }
 
 @media screen and (max-height: 440px) {
     body {
-        margin: 50px 0;
+        margin: 150px 0;
     }
 }

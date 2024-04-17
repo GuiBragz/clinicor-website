@@ -29,7 +29,7 @@
         }
 
         // Funcção para inserir dados na tabela usuários.
-        $stmt = $conexao->prepare("INSERT INTO usuarios (email, senha, tipo, DataRegistro) VALUES (?, ?, 'funcionario', NOW())");
+        $stmt = $conexao->prepare("INSERT INTO usuarios (email, senha, tipo, DataRegistro) VALUES (?, ?, 'paciente', NOW())");
         // Preenche os espaços em branco (as interrogações) com os valores reais.
         $stmt->bind_param("ss", $email, $senha);
 
@@ -46,13 +46,5 @@
         $conexao->close();
     }
 
-    // Verifica se o método de requisição HTTP é do tipo "POST".
-    if ($_SERVER["REQUEST_METHOD"] == "POST") {
-        // Obtém os dados do formulário.
-        $email = $_POST["email"];
-        $senha = $_POST["senha"];
-
-        // Chama a função para cadastrar o usuário.
-        cadastrarUsuario($email, $senha);
-    }
+    
 ?>
