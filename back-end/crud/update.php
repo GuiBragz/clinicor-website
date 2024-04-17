@@ -4,11 +4,11 @@ include_once './connection.pp';
 function modificadorSenha($senhanova, $codigosenha) {
     // Criar uma instância da classe Connection
     $conexao = getConnection(); // Supondo que getConnection() seja uma função que retorna a conexão com o banco de dados
-
+    $senhaCriptografada = password_hash($senhanova, PASSWORD_DEFAULT);
     // Faz uma query no MySQL para atualizar a senha com base no código de recuperação de senha
     $sql = "UPDATE Usuarios SET Senha = ? WHERE CodigoRecuperaSenha = ?";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ss", $senhanova, $codigosenha); // Vinculando ambos os parâmetros à consulta SQL
+    $stmt->bind_param("ss", $senhaCriptografada, $codigosenha); // Vinculando ambos os parâmetros à consulta SQL
     $stmt->execute();
     
     // Verificar se a consulta foi bem-sucedida e retornar true ou false conforme necessário

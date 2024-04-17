@@ -66,6 +66,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = $_POST["email"];
     $codigoaleatorio = geradorCodigoEmail();
 
+    if(VerificaEmailNoReturnDados($email)){
+
     inserirCodigoRecuperaIndb($email, $codigoaleatorio );
 
     // se o formulario foi submetido via post ele cama função enviar email e mostra um pop-up dizendo que o email foi enviado com sucesso
@@ -115,7 +117,9 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 } else {
     // Se o formulário não foi submetido via POST, redireciona para a página de cadastro_recuperar_senha.php
-    echo "<script>window.alert('Erro ao tentar enviar email, tente novamente em instanteas!');</script>";
+    echo "<script>window.alert('Email não cadastrado!');</script>";
     echo "<script>window.location.href = '../cadastro_recuperar_senha.html';</script>";
 }
+}    echo "<script>window.alert('Erro ao tentar enviar email, tente novamente em instanteas!');</script>";
+    echo "<script>window.location.href = '../cadastro_recuperar_senha.html';</script>";
 ?>
