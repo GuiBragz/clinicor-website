@@ -15,6 +15,25 @@
         
         return $count > 0;
     }
+    function funcionarioJaExiste($conexao, $nome, $foto, $cargo, $setor, $dataContratacao, $salario) {
+        $count = 0;
+    
+        // Preparar a consulta SQL
+        $stmt = $conexao->prepare("SELECT COUNT(*) FROM funcionario WHERE nome = ? AND foto = ? AND cargo = ? AND setor = ? AND dataContratacao = ? AND salario = ?");
+        $stmt->bind_param("ssssss", $nome, $foto, $cargo, $setor, $dataContratacao, $salario);
+        
+        // Executar a consulta
+        $stmt->execute();
+        
+        // Buscar o resultado da contagem
+        $stmt->fetch();
+        
+        // Fechar a consulta
+        $stmt->close();
+        
+        // Retornar true se a contagem for maior que 0, caso contrário, retornar false
+        return $count > 0;
+    }
 
     function cadastrarUsuario($email, $senha) {
         $conexao = getConnection();
@@ -53,6 +72,13 @@
         // Criptografar a senha
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
         
+        // Verificar se o usuário ou funcionário já existe
+        if(usuarioJaExiste($conexao, $email) || funcionarioJaExiste($conexao, $nome, $foto, $cargo, $setor, $dataContratacao, $salario)) {
+            echo "<script>window.alert('Dados já em uso!');</script>";
+            echo "<script>window.location.href = '../cadastro_user.html';</script>";
+            exit;
+        }
+    
         // Tentar executar as consultas SQL
         try {
             // Preparar e executar a primeira consulta SQL para inserir na tabela 'usuarios'
@@ -73,7 +99,6 @@
                 // Redirecionar o usuário para a página de login após o cadastro bem-sucedido
                 echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
                 echo "<script>window.location.href = '../login.html';</script>";
-                
             } else {
                 // Se alguma das inserções falhar, lançar uma exceção
                 throw new Exception("Erro ao cadastrar funcionário.");
