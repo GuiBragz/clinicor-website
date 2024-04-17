@@ -3,7 +3,7 @@
     function getConnection() {
         $server = 'localhost';
         $username = 'root';
-        $password = '3838jaum';
+        $password = 'Deyvison100!';
         $bdname = 'clinicordb';
 
         // Conectar com o banco de dados.
