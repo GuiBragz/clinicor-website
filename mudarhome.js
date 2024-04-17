@@ -1,8 +1,3 @@
- HEAD
-// Verificar se o tema foi previamente escolhido pelo usuário, caso contrário, usar tema padrão
-var tema = localStorage.getItem('tema') === 'escuro' ? 'escuro' : 'claro';
-aplicarTema(tema); // Aplicar o tema ao carregar a página
-
 // Verifica se já existe um valor salvo para tema no localStorage
 var tema = localStorage.getItem('tema') === 'true';
 
@@ -14,6 +9,8 @@ var rede = document.querySelectorAll('.rede');
 var rodap = document.querySelectorAll('.deadsec');
 var espec = document.querySelectorAll('.espec');
 var link = document.querySelectorAll('.lin');
+var black = document.querySelectorAll('.black');
+var iframe = document.querySelector('.iframe');
 
 // Função para atualizar o tema da página
 function atualizarTema() {
@@ -44,6 +41,9 @@ function atualizarTema() {
         link.forEach(function(link) {
             link.style.color = 'white';
         });
+        black.forEach(function(black) {
+            black.style.color = 'white';
+        });
     } else {
         document.body.style.backgroundImage = 'url(images/home-background.png)';
         elementos.forEach(function(elemento) {
@@ -71,75 +71,31 @@ function atualizarTema() {
         link.forEach(function(link) {
             link.style.color = '#A93A2F';
         });
+        black.forEach(function(black) {
+            black.style.color = 'black';
+        });
     }
 }
 
 // Chamada inicial para atualizar o tema ao carregar a página
 atualizarTema();
- c95350a7cd030dd558fe59204184daebc17bd540
 
-// Função para aplicar o tema escolhido pelo usuário
-function aplicarTema(temaEscolhido) {
-    var elementos = document.querySelectorAll('.texto');
-    var especialidades = document.querySelectorAll('.especialidades');
-    var convenios = document.querySelectorAll('.convenios');
-    var medicos = document.querySelectorAll('.medicos');
-    var rede = document.querySelectorAll('.rede');
-
-    if (temaEscolhido === 'escuro') {
-        document.body.style.backgroundImage = 'url(images/home-background2.png)';
-        elementos.forEach(function(elemento) {
-            elemento.style.color = 'white';
-        });
-        especialidades.forEach(function(especialidade) {
-            especialidade.src = 'images/icon/item 1 pbaixo home 2.png';
-        });
-        convenios.forEach(function(convenio) {
-            convenio.src = 'images/icon/item 2 pbaixo home 2.png';
-        });
-        medicos.forEach(function(medico) {
-            medico.src = 'images/icon/item 3 pbaixo home 2.png';
-        });
-        rede.forEach(function(redeItem) {
-            redeItem.style.color = 'white';
-        });
-    } else {
-        document.body.style.backgroundImage = 'url(images/home-background.png)';
-        elementos.forEach(function(elemento) {
-            elemento.style.color = '#A93A2F';
-        });
-        especialidades.forEach(function(especialidade) {
-            especialidade.src = 'images/icon/item 1 pbaixo home.png';
-        });
-        convenios.forEach(function(convenio) {
-            convenio.src = 'images/icon/item 2 pbaixo home.png';
-        });
-        medicos.forEach(function(medico) {
-            medico.src = 'images/icon/item 3 pbaixo home.png';
-        });
-        rede.forEach(function(redeItem) {
-            redeItem.style.color = '#A93A2F';
-        });
-    }
-}
-
-// Adicionar evento para alterar o estilo quando necessário
 window.addEventListener('message', function(event) {
     if (event.data === 'alterarEstilo') {
- HEAD
-        // Alternar o tema
-        tema = tema === 'escuro' ? 'claro' : 'escuro';
-        // Armazenar o estado do tema no localStorage
-        localStorage.setItem('tema', tema);
-        // Aplicar o tema escolhido
-        aplicarTema(tema);
-
         // Altera o estilo da página como desejado
         tema = !tema; // Inverte o valor de tema
         localStorage.setItem('tema', tema); // Salva o valor de tema no localStorage
         atualizarTema(); // Atualiza o tema da página conforme o novo valor de tema
-c95350a7cd030dd558fe59204184daebc17bd540
     }
 });
 
+
+window.addEventListener('message', function(event) {
+    if (event.data === 'alterarMenu' && iframe.offsetHeight === 110) {
+        // Altera a altura do iframe para 210px
+        iframe.style.height = '310px';
+    } else {
+        iframe.style.height = '110px';
+    }
+});
 
