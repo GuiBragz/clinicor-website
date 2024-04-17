@@ -1,20 +1,9 @@
 <?php
-    // Inclua o arquivo de conexão com o banco de dados
-    include("../back-end/connection.php");
+include_once './back-end/connection.php';
+include_once './back-end/models/funcionario.php';
+include_once './back-end/crud/read.php';
 
-    // Estabeleça a conexão com o banco de dados
-    $conexao = getConnection();
-
-    // Verifique se a conexão foi estabelecida corretamente
-    if (!$conexao) {
-        die("Conexão falhou: " . mysqli_connect_error());
-    }
-
-    $Nomemed = "SELECT Email, Tipo FROM Usuarios";
-    $resultadomed = mysqli_query($conexao, $Nomemed) or die(mysqli_error($conexao));
-
-    // Feche a conexão com o banco de dados
-    mysqli_close($conexao);
+$funcionariosArray = preencherArrayFuncionarios($conn);
 ?>
 
 <!DOCTYPE html>

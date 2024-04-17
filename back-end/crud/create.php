@@ -111,47 +111,70 @@
     }
     
 
-    function cadastraPaciente($email, $nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $planoSaudeID){
+    function cadastraPaciente($nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $planoSaudeNome, $planoSaudeCobertura) {
         // Criar uma instância da classe Connection
         $conexao = getConnection();
-        
-        // Verificar se o usuário ou funcionário já existe
-        if(usuarioJaExiste(pacienteJaExiste($conexao, $nome, $foto, $cargo, $setor, $dataContratacao, $salario))) {
+        $usuarioID = null; // Inicializar a variável $usuarioID
+    
+        if(isset($_SESSION['usuario_email'])) {
+            // Obter o email da sessão
+            $email = $_SESSION['usuario_email'];
+    
+            // Verificar se o usuário existe com base no email da sessão
+            $usuario = buscarUsuarioPorEmail($email);
+    
+            if ($usuario) {
+                // Obter o ID do usuário
+                $usuarioID = $usuario->getUsuarioID();
+            } else {
+                // Se o usuário não for encontrado, mostrar uma mensagem de erro e redirecionar
+                echo "<script>window.alert('Usuário não encontrado.');</script>";
+                echo "<script>window.location.href = '../cadastro_user.html';</script>";
+                exit;
+            }
+        } else {
+            // Se o email da sessão não estiver definido, mostrar uma mensagem de erro e redirecionar
+            echo "<script>window.alert('Sessão de usuário não encontrada.');</script>";
+            echo "<script>window.location.href = '../cadastro_user.html';</script>";
+            exit;
+        }
+    
+        // Verificar se o paciente já existe
+        if (buscarUsuarioPorEmail($email)) {
             echo "<script>window.alert('Dados já em uso!');</script>";
             echo "<script>window.location.href = '../cadastro_user.html';</script>";
             exit;
-        }else{
+        } else {
+            // Tentar executar a consulta SQL
+            try {
+                // Inserir o plano de saúde na tabela 'PlanosSaude'
+                $stmtPlanoSaude = $conexao->prepare("INSERT INTO PlanosSaude (NomePlano, Cobertura) VALUES (?, ?)");
+                $stmtPlanoSaude->bind_param("ss", $planoSaudeNome, $planoSaudeCobertura);
+                $stmtPlanoSaude->execute();
+                $planoSaudeID = $stmtPlanoSaude->insert_id;
     
-        // Tentar executar as consultas SQL
-        try {
-            // Preparar e executar a primeira consulta SQL para inserir na tabela 'usuarios'
-            $stmt1 = $conexao->prepare("INSERT INTO pacientes (Email, Senha, Tipo, DataRegistro) VALUES (?, ?, 'funcionario', NOW())");
-            $stmt1->bind_param("ss", $email, $senhaCriptografada);
-            $stmt1->execute();
-            
-            // Obter o ID do usuário inserido
-            $usuarioID = $stmt1->insert_id;
-            
-            
-            // Verificar se ambas as consultas foram bem-sucedidas
-            if ($stmt1->affected_rows > 0) {
-                // Redirecionar o usuário para a página de login após o cadastro bem-sucedido
-                echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
-                echo "<script>window.location.href = '../login.html';</script>";
-            } else {
-                // Se alguma das inserções falhar, lançar uma exceção
-                throw new Exception("Erro ao cadastrar funcionário.");
+                // Inserir o paciente na tabela 'Pacientes'
+                $stmtPaciente = $conexao->prepare("INSERT INTO Pacientes (Nome, DataNascimento, Genero, Endereco, NumeroTelefone, PlanoSaudeID, UsuarioID) VALUES (?, ?, ?, ?, ?, ?, ?)");
+                $stmtPaciente->bind_param("ssssssi", $nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $planoSaudeID, $usuarioID);
+                $stmtPaciente->execute();
+    
+                // Verificar se a consulta foi bem-sucedida
+                if ($stmtPaciente->affected_rows > 0) {
+                    // Redirecionar o usuário para a página de login após o cadastro bem-sucedido
+                    echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
+                    echo "<script>window.location.href = '../login.html';</script>";
+                } else {
+                    // Se a inserção falhar, lançar uma exceção
+                    throw new Exception("Ocorreu um erro ao cadastrar o paciente.");
+                }
+            } catch (Exception $e) {
+                // Se ocorrer um erro, mostrar uma mensagem de erro e redirecionar o usuário para a página de cadastro novamente
+                echo "<script>alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
+                echo "<script>window.location.href = '../cadastro_user.html';</script>";
             }
-        } catch (Exception $e) {
-            // Se ocorrer um erro, mostrar uma mensagem de erro e redirecionar o usuário para a página de cadastro novamente
-            echo "<script>alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
-            echo "<script>window.location.href = '../cadastro_user.html';</script>";
-        }}
-
-
-
-
+        }
     }
+    
 
 
 

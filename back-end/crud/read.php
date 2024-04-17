@@ -2,6 +2,8 @@
 session_start();
 include_once 'connection.php';
 include_once 'models/usuario.php';
+include_once 'models/funcionario.php';
+
 
 // Função para verificar as credenciais no banco de dados
 function verificarCredenciaisNoBanco($email, $senha) {
@@ -100,6 +102,50 @@ function buscarUsuarioPorEmail($email) {
         }
 
         
+// Função para preencher um array com os dados da tabela Funcionarios
+function preencherArrayFuncionarios($conn) {
+    // Array para armazenar os funcionários
+    $funcionarios = array();
+
+    // Query SQL para selecionar todos os funcionários da tabela Funcionarios
+    $sql = "SELECT * FROM Funcionarios";
+
+    // Executar a query
+    $result = $conn->query($sql);
+
+    // Verificar se há resultados e preencher o array com os dados
+    if ($result->num_rows > 0) {
+        while ($row = $result->fetch_assoc()) {
+            // Criar um objeto Funcionario com os dados do funcionário
+            $funcionario = new Funcionario(
+                $row['FuncionarioID'],
+                $row['Nome'],
+                $row['Cargo'],
+                $row['Setor'],
+                $row['DataContratacao'],
+                $row['Salario'],
+                $row['UsuarioID']
+            );
+            // Adicionar o funcionário ao array
+            $funcionarios[] = $funcionario;
+        }
+    }
+
+    // Retornar o array de funcionários preenchido
+    return $funcionarios;
+}
+
+// Estabelecer a conexão com o banco de dados (substitua pelos seus dados de conexão)
+$conn = new mysqli('localhost', 'usuario', 'senha', 'nome_do_banco');
+
+// Verificar se a conexão foi bem-sucedida
+if ($conn->connect_error) {
+    die("Erro na conexão: " . $conn->connect_error);
+}
+$funcionariosArray = preencherArrayFuncionarios($conn);
+
+
+
 
 
 
