@@ -62,6 +62,20 @@ function buscarUsuarioPorEmail($email) {
         $conexao->close();
         return null;
     }
+
+    function VerificaEmailNoReturnDados($email) {
+        // Criar uma instância da classe Connection
+        $conexao = getConnection();
+        
+        // Prevenir SQL Injection usando consultas preparadas
+        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+
+
+
+
+
 }
 
 ?>
