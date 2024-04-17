@@ -1,5 +1,4 @@
 body{
-    background-image: url(images/home-background.png);
     background-size: cover;
     font-family: Arial, Helvetica, sans-serif;
     margin: 0;
@@ -70,4 +69,13 @@ img {
 
 .imag:hover {
     transform: scale(1);
+}
+
+.back {
+    top: 5px;
+    right: 0px;
+    position: absolute;
+    z-index: -1;
+    width: 85%;
+    height: 120px;
 }
