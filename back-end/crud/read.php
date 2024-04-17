@@ -1,5 +1,4 @@
 <?php
-
 session_start();
 include_once 'connection.php';
 include_once 'models/usuario.php';
@@ -10,22 +9,26 @@ function verificarCredenciaisNoBanco($email, $senha) {
     $conexao = getConnection();
 
     // Faz uma query no MySQL para verificar se as credenciais estão corretas
-    $sql = "SELECT * FROM usuarios WHERE email = ? AND senha = ?";
+    $sql = "SELECT * FROM usuarios WHERE email = ?";
     $stmt = $conexao->prepare($sql);
-    $stmt->bind_param("ss", $email, $senha);
+    $stmt->bind_param("s", $email);
     $stmt->execute();
     $resultado = $stmt->get_result();
 
     // Verifica se a consulta retornou algum resultado
     if ($resultado->num_rows > 0) {
-        // Se as credenciais estiverem corretas, retorna true
-        $conexao->close();
-        return true;
-    } else {
-        // Se as credenciais estiverem incorretas, retorna false
-        $conexao->close();
-        return false;
+        // Obtém a linha de resultado como um array associativo
+        $dadosUsuario = $resultado->fetch_assoc();
+        
+        // Verifica se a senha está correta usando password_verify
+        if (password_verify($senha, $dadosUsuario['senha'])) {
+            $conexao->close();
+            return true;
+        }
     }
+
+    $conexao->close();
+    return false;
 }
 
 // Função para buscar os dados do usuário no MySQL e armazenar em um objeto
@@ -34,7 +37,7 @@ function buscarUsuarioPorEmail($email) {
     $conexao = getConnection();
     
     // Prevenir SQL Injection usando consultas preparadas
-    $stmt = $conexao->prepare("SELECT * FROM Usuarios WHERE Email = ?");
+    $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
     $stmt->bind_param("s", $email);
     $stmt->execute();
     $resultado = $stmt->get_result();
@@ -60,24 +63,5 @@ function buscarUsuarioPorEmail($email) {
         return null;
     }
 }
-
-function buscarCodigoRecuperacao($CodigoRecuperaSenha) {
-    $conexao = getConnection();
-
-    // Prevenir SQL Injection usando consultas preparadas
-    $stmt = $conexao->prepare("SELECT * FROM Usuarios WHERE CodigoRecuperaSenha = ?");
-    $stmt->bind_param("s", $CodigoRecuperaSenha);
-    $stmt->execute();
-    $resultado = $stmt->get_result();
-    
-    // Verifica se a consulta retornou algum resultado
-    if ($resultado->num_rows > 0) {
-        return true; // Retorna true se encontrar um usuário com o código de recuperação de senha fornecido
-    } else {
-        return false; // Retorna false se não encontrar nenhum usuário com o código de recuperação de senha fornecido
-    }
-}
-
-
 
 ?>
