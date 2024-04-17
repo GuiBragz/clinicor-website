@@ -6,24 +6,15 @@ include_once 'crud/read.php';
 include_once 'controlador-login.php';
 
 // Verifica se a sessão de usuário está definida
-if (isset($_SESSION['usuario_email'])) {
-    // Obtém o email do usuário da sessão
+if(isset($_SESSION['usuario_email'])) { 
     $email = $_SESSION['usuario_email'];
-    
-    // Busca o usuário por email
-    $usuario = buscarUsuarioPorEmail($email);
-    
-    // Verifica se o usuário foi encontrado
-    if ($usuario !== null) {
-        // Obtém o tipo do usuário
-        $tipo = $usuario->getTipo();
-        
-        // Agora você pode usar $tipo conforme necessário
-    } else {
-        $tipo = null;
-    }
+    $tipoUsuario = buscarUsuarioPorEmail($email)->getTipo();
+
+    // Envia o tipo de usuário como resposta
+    echo $tipoUsuario;
 } else {
-    echo "<script>window.alert('Login não efetuado!');</script>";
-    echo "<script>window.location.href = '../login.html';</script>";
+    // Se o usuário não estiver autenticado, exibe uma mensagem de erro
+    http_response_code(401); // Defina o código de resposta HTTP como não autorizado
+    echo "Usuário não autenticado";
 }
 ?>
