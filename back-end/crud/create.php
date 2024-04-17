@@ -16,24 +16,24 @@
         return $count > 0;
     }
 
-    // Função para cadastrar um novo usuário.
     function cadastrarUsuario($email, $senha) {
         $conexao = getConnection();
-
-        // Função verifica se o email inserido já está em uso.
+    
+        // Verifica se o email já está em uso
         if(usuarioJaExiste($conexao, $email)) {
-            // Se já estiver em uso, exibe uma mensagem de erro e redireciona para a página de cadastro.
             echo "<script>window.alert('Erro ao cadastrar usuário! Email já está em uso');</script>";
             echo "<script>window.location.href = '../cadastro.html';</script>";
             exit;
         }
-
-        // Funcção para inserir dados na tabela usuários.
+    
+        // Criptografa a senha antes de salvar no banco de dados
+        $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
+    
+        // Insere os dados na tabela usuários
         $stmt = $conexao->prepare("INSERT INTO usuarios (email, senha, tipo, DataRegistro) VALUES (?, ?, 'paciente', NOW())");
-        // Preenche os espaços em branco (as interrogações) com os valores reais.
-        $stmt->bind_param("ss", $email, $senha);
-
-        // Executar a função SQL.
+        $stmt->bind_param("ss", $email, $senhaCriptografada);
+    
+        // Executa a função SQL
         if ($stmt->execute()) {
             echo "<script>window.alert('Cadastro realizado com sucesso!');</script>";
             echo "<script>window.location.href = '../login.html';</script>";
@@ -41,7 +41,7 @@
             echo "<script>window.alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
             echo "<script>window.location.href = '../cadastro.html';</script>";
         }
-
+    
         $stmt->close();
         $conexao->close();
     }
