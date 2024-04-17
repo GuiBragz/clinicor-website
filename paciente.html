@@ -1,0 +1,557 @@
+<!DOCTYPE html> <!-- Declara o tipo de documento como HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português brasileiro -->
+<head>
+        <meta charset="UTF-8"> <!-- Define o conjunto de caracteres como UTF-8 -->
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- Define a largura da viewport e a escala inicial para dispositivos móveis -->
+        <title>CLINICOR - Fale Conosco</title> <!-- Define o título da página -->
+        <link rel="stylesheet" href="csshome.css"> <!-- Importa uma folha de estilos personalizada -->
+        <link rel="icon" href="images/favicon.ico.png" type="image/x-icon">
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <style>
+     /* Estilos adicionados */
+     .medico-info{
+      position: absolute;
+      top: -30px;
+      left: -10px;
+      color: #FEA625;
+      font-size: 14px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      z-index: 1;
+     }
+      .circulo{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 200px;
+        height: 200px;
+        background-color: #A93A2F;
+        border-radius: 50%;
+        margin-bottom: 10px;
+        
+      }
+      .circulo i {
+            color: white;
+            font-size: 150px;
+        }
+
+        .nome, .funcao {
+            text-align: center;
+        }
+
+        .nome {
+            font-weight: bold;
+            text-transform: uppercase;
+            color: #A93A2F;
+        }
+
+        .funcao {
+            font-style: italic;
+            color: #FEA625;
+        }
+ /* Estilos da caixa de sobreposição */
+ .overlay {
+            display: none;
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            background-color: rgba(0, 0, 0, 0.5);
+            z-index: 999;
+        }
+
+        .popup {
+            display: none;
+            position: absolute;
+            background-color: rgb(241, 235, 235);
+            width: 500px;
+            height: 500px;
+            top: 200px;
+            left: 650px;
+            transform: translate(-50%, -50%);
+            border-radius: 8px;
+            padding: 20px;
+            z-index: 1000;
+        }
+
+        .close {
+            position: ab;
+            top: 10px;
+            left: 10px;
+            cursor: pointer;
+            color: #A93A2F;
+        }
+
+        .close i {
+            font-size: 24px;
+        }
+
+        /* Estilos da box de ícone pessoa card */
+        .pessoa-card {
+            position:relative;
+            top: 520px; /* Ajustado para cima */
+            left: 800px;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 120px;
+            background-color: #fafafa;
+            border-radius: 20px;
+            border: 1px solid #dab40f; /* Cor da linha */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            z-index: 1;
+        }
+
+        .pessoa-card i {
+            color: #FEA625;
+            font-size: 30px;
+            position:relative;
+            top: -20px;
+        }
+        .pessoa-card p {
+            position: absolute;
+            top: 60px; /* Ajustado para cima */
+            font-size: 14px;
+            color: rgb(245, 11, 11);
+            text-align: center;
+            width: 100%;
+        }
+        .quadrados-container {
+         display: flex;
+         justify-content: space-between; /* Ou outra propriedade de alinhamento que preferir */
+}
+
+
+.quadrado {
+    width: 200px;
+    height: 190px;
+    background-color: #fafafa;
+    border: 1px solid #A93A2F;
+    border-radius: 25px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    margin: 4px; /* Adicione margem entre os quadrados */
+}
+     .centralizar {
+          position: absolute;
+          top: 40px;
+          left: 700px;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+}
+.centralizar2 {
+          position: absolute;
+          top: 275px;
+          left: 700px;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+}
+.centralizar3 {
+          position: absolute;
+          top: 475px;
+          left: 700px;
+          transform: translate(-50%, -50%);
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+}
+.hora{
+  position: relative;
+ top: -130px;
+ left: 70px;
+ font-weight: bold;
+ text-transform: uppercase;
+ color: #A93A2F;
+}
+.paciente{
+  position: relative;
+  top: -70px;
+  left: -20px;
+  color:#ffbb00 ;
+}
+.tipo-consulta{
+  position: relative;
+  top: -60px;
+  left: -20px;
+  color: #A93A2F;
+}
+.imagem{
+  position: relative;
+  top: 55px;
+  left: -30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 130px;
+  height: 120px;
+  background-color: #ffbb00;
+  border-radius: 60%;
+  margin-bottom: 70px;
+   } 
+   .imagem i{
+    color: white;
+    font-size: 130px;
+   }
+   .list{
+    position: relative;
+    top: -130px;
+    left: 70px;
+    color:#A93A2F ;
+    font-size: 40px;
+   }
+   .consultas-dias{
+    position: relative;
+    top: -35px;
+    left: -290px;
+    color: rgb(255, 255, 255);
+   } 
+   /* painel de pesquisa*/
+.search-box {
+            width: 300px;
+            padding: 0px;
+            border: 1px solid #ccc;
+            border-radius: 66%;
+            display: flex;
+            align-items: center;
+            margin-top: -250px;
+            margin-left: 1000px;
+        }
+/*tamanho da barra*/
+        .search-box input[type="text"] {
+            flex: 1;
+            border: none;
+            padding: 8px;
+            font-size: 14px;
+
+        }
+/* Botao de pesquisar*/
+.search-box button {
+            border: none;
+            background-color: #007bff;
+            color: white;
+            padding: 9px;
+            border-radius: 0 2px 2px 0;
+            cursor: pointer;
+        }
+        
+        .tabela {
+          position: absolute;
+          top: 450px;
+          left: 800px;
+          width: 12px;
+          height: 54px;
+          }
+
+          .retangulo {
+             /* Adicione as propriedades de posicionamento que deseja para mover o retângulo */
+            position: absolute;
+            top: 50%; /* Exemplo: mover 50% da altura da tabela */
+            left: 50%; /* Exemplo: mover 50% da largura da tabela */
+            transform: translate(-50%, -50%); /* Centralizando o retângulo no centro da tabela */
+            width: 800px;
+            height: 600px;
+            background-color: #fafafa;
+            border: 1px solid #A93A2F;
+            border-radius: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            margin: 4px; /* Adicione margem entre os quadrados */
+          }
+
+        .consulta-recente{
+          position: relative;
+          top: -10px;
+          left: 1px;
+          font-weight: bold;
+          color: #A93A2F;
+        }
+        .imagem2{
+          position: relative;
+          top: 175px;
+          left: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: #ffbb00;
+          border-radius: 60%;
+          margin-bottom: 70px;
+
+        }
+        .imagem2 i{
+          color: white;
+          font-size: 40px;
+
+        }
+        .hora2{
+          position: relative;
+          top: 35px;
+          left: -32px;
+          color: #A93A2F;
+          font-size: 12px;
+
+        }
+        
+        .paciente2{
+          position: relative;
+          top: -5px;
+          left: -30px;
+          color:#ffbb00 ;
+          font-size: 12px;
+
+
+        }
+      
+        .tipo-consulta2{
+          position: relative;
+          top: -8px;
+          left: -30px;
+          color: #A93A2F;
+          font-size: 12px;
+
+        }.imagem3{
+          position: relative;
+          top: 50px;
+          left: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: #ffbb00;
+          border-radius: 60%;
+          margin-bottom: 70px;
+        }
+        .imagem3 i{
+          color: white;
+          font-size: 40px;
+        }
+        .hora3{
+          position: relative;
+          top: -40px;
+          left: -32px;
+          color: #A93A2F;
+          font-size: 12px;
+        }
+        .paciente3{
+          position: relative;
+          top: -80px;
+          left: -30px;
+          color:#ffbb00 ;
+          font-size: 12px;
+        }
+        .tipo-consulta3{
+          position: relative;
+          top: -83px;
+          left: -30px;
+          color: #A93A2F;
+          font-size: 12px;
+
+        }
+        .imagem4{
+          position: relative;
+          top: -20px;
+          left: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: #ffbb00;
+          border-radius: 60%;
+          margin-bottom: 70px;
+        }
+        
+        .imagem4 i{
+          color: white;
+          font-size: 40px;
+        }
+        .hora4{
+          position: relative;
+          top: -110px;
+          left: -32px;
+          color: #A93A2F;
+          font-size: 12px;
+        }
+        .paciente4{
+          position: relative;
+          top: -150px;
+          left: -30px;
+          color:#ffbb00 ;
+          font-size: 12px;
+        }
+        .tipo-consulta4{
+          position: relative;
+          top: -154px;
+          left: -30px;
+          color: #A93A2F;
+          font-size: 12px;
+
+        }.imagem5{
+          position: relative;
+          top: -90px;
+          left: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: #ffbb00;
+          border-radius: 60%;
+          margin-bottom: 70px;
+        }.imagem5 i{
+          color: white;
+          font-size: 40px;
+        }
+        .hora5{
+          position: relative;
+          top: -180px;
+          left: -32px;
+          color: #A93A2F;
+          font-size: 12px;
+        }
+        .paciente5{
+          position: relative;
+          top: -220px;
+          left: -30px;
+          color:#ffbb00 ;
+          font-size: 12px;
+        }
+        .tipo-consulta5{
+          position: relative;
+          top: -224px;
+          left: -30px;
+          color: #A93A2F;
+          font-size: 12px;
+
+        }
+        .imagem6{
+          position: relative;
+          top: -150px;
+          left: 60px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          width: 50px;
+          height: 50px;
+          background-color: #ffbb00;
+          border-radius: 60%;
+          margin-bottom: 70px;
+        }
+        .imagem6 i{
+          color: white;
+          font-size: 40px;
+        }
+        .hora6{
+          position: relative;
+          top: -240px;
+          left: -32px;
+          color: #A93A2F;
+          font-size: 12px;
+        }
+        .paciente6{
+          position: relative;
+          top: -280px;
+          left: -30px;
+          color:#ffbb00 ;
+          font-size: 12px;
+        }
+        .tipo-consulta6{
+          position: relative;
+          top: -283px;
+          left: -30px;
+          color: #A93A2F;
+          font-size: 12px;
+
+        }
+   a {
+    text-decoration: none;
+}
+
+  </style>
+  </head>
+<body> <!-- Corpo da página -->
+  <iframe src="barra.html" width="100%" height="110px" frameborder="0"></iframe>
+    <form action="">
+      <div>
+        <img src="images/slide_background_home.png" alt="" class="imagemfundo">
+      </div>
+       <div class=" slide">
+        <!-- Adição do círculo com ícone de pessoa, nome do médico e função -->
+        <div class="medico-info">
+          <div class="circulo">
+            <i class="bi bi-person-fill"></i>
+          </div>
+          <div class="nome">Nome do paciente</div>
+          <div class="fucao">Histórico</div>
+        </div>
+        <div class="pessoa-card" style="left: 90px; top: 250px;" onclick="openOverlay()">
+          <i class="bi bi-person-badge-fill"></i>
+          <p>Informações Pessoais</p>
+      </div>
+      <!-- Caixa de sobreposição -->
+      <div class="overlay" id="overlay" onclick="closeOverlay()"></div>
+      <div class="popup" id="popup">
+          <div class="close" id="closeBtn" onclick="closeOverlay()"><i class="bi bi-x-circle"></i></div>
+          <!-- Conteúdo da caixa de sobreposição -->
+          <br>
+          Informações:
+          Nome:Fulano(a)x <p></p>
+          Idade:X         <p></p>
+          Descrição do Funcionario: altura, cor de cabelo, cor dos olhos etc   
+      </div>
+      <div class="search-box">
+        <input type="text" placeholder="Pesquisar...">
+        <button><i class="bi bi-search"></i></button>
+    </div> 
+      <div class="centralizar">
+        <div class="consultas-dias"><h2>Consultas marcadas:</h2></div>
+        <div class="quadrados-container">
+            <a href="link_para_pacientes" class="quadrado">
+                <div class="imagem"><i class="bi bi-person-fill"></i></div>
+                <div class="list"><i class="bi bi-list"></i></div>
+                <div class="tipo-consulta">Tipo de Consulta</div>
+                <div class="hora">12:00</div>
+                <div class="tipo-consulta">01/02/2024</div>
+            </a>
+        </div>
+    </div>
+    
+  <div class="tabela">
+    <a href="link_pra_pacientes" class="retangulo">
+         
+  </a>
+</div>
+    </form> 
+      <script src="tema.js"></script> <!-- Importa um script para funcionalidade de alternar tema -->
+      <script>
+          // Função para mostrar o popup
+          function openOverlay() {
+            document.getElementById("popup").style.display = "block";
+            document.getElementById("overlay").style.display = "block";
+        }
+
+        // Função para fechar o popup
+        function closeOverlay() {
+            document.getElementById("popup").style.display = "none";
+            document.getElementById("overlay").style.display = "none";
+        }
+      </script>
+</body>
+</html>
