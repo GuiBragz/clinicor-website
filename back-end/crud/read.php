@@ -99,6 +99,8 @@ function buscarUsuarioPorEmail($email) {
             }
         }
 
+        
+
 
 
 ?>
