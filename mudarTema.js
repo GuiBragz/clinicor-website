@@ -3,8 +3,11 @@ var temaEscolhido = localStorage.getItem('temaEscolhido');
 if (temaEscolhido === null) {
     temaEscolhido = 'dia'; // Ou 'noite' dependendo do tema padrão
     localStorage.setItem('temaEscolhido', temaEscolhido);
+ HEAD
+
 } else {
     aplicarTema(temaEscolhido); // Aplicar o tema ao carregar a página se já foi escolhido
+ c95350a7cd030dd558fe59204184daebc17bd540
 }
 
 // Função para aplicar o tema escolhido pelo usuário
@@ -30,13 +33,28 @@ function aplicarTema(tema) {
     }
 }
 
+ HEAD
+// Aplicar o tema escolhido ao carregar a página
+aplicarTema(temaEscolhido);
+
+// Função para o usuário mudar o tema
+
 // Função para o usuário mudar o tema e enviar a mensagem para alterar o estilo
+ c95350a7cd030dd558fe59204184daebc17bd540
 function mudarTema() {
     var temaAtual = localStorage.getItem('temaEscolhido');
     var novoTema = temaAtual === 'dia' ? 'noite' : 'dia';
     localStorage.setItem('temaEscolhido', novoTema);
     aplicarTema(novoTema);
+ HEAD
+}
+
+// Enviar mensagem para alterar estilo quando necessário
+window.parent.postMessage('alterarEstilo', '*');
+
+
 
     // Enviar a mensagem para o elemento pai
     window.parent.postMessage('alterarEstilo', '*');
-}
+
+c95350a7cd030dd558fe59204184daebc17bd540

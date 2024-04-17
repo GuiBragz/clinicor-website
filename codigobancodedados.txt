@@ -1,45 +1,68 @@
-create database ClinicorDB;
-use ClinicorDB;
+
+drop database clinicordb;
+create database clinicordb;
+use clinicordb;
 
 CREATE TABLE PlanosSaude (
-    PlanoSaudeID INT PRIMARY KEY,
+    PlanoSaudeID INT PRIMARY KEY auto_increment,
     NomePlano VARCHAR(100),
     Cobertura VARCHAR(255)
 );
 
-CREATE TABLE Medicos (
-    MedicoID INT PRIMARY KEY,
-    Nome VARCHAR(50),
-    Especialidade VARCHAR(50),
-    HorarioAtendimento VARCHAR(100),
-    NumConsultasRealizadas INT
-);
-
-
-CREATE TABLE Consultas (
-    ConsultaID INT PRIMARY KEY,
-    DataHora DATETIME,
-    MedicoID INT,
-    PacienteID INT,
-    Status VARCHAR(20),
-    FOREIGN KEY (MedicoID) REFERENCES Medicos(MedicoID),
-    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
-);
-
-
 CREATE TABLE Usuarios (
     UsuarioID INT PRIMARY KEY auto_increment,
+     Email VARCHAR(100),
+    Senha VARCHAR(50),
+    Tipo VARCHAR(20),
+    DataRegistro DATE,
+    CodigoRecuperaSenha varchar(8) 
+);
+CREATE TABLE Funcionarios (
+    FuncionarioID INT PRIMARY KEY auto_increment,
+    Nome VARCHAR(50),
+    Cargo VARCHAR(50),
+    Setor VARCHAR(50),
+    DataContratacao DATE,
+    Salario DECIMAL(10,2),
+    UsuarioID INT,
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
+);
+CREATE TABLE Pacientes (
+    PacienteID INT PRIMARY KEY,
     Nome VARCHAR(50) not null,
-    CPF VARCHAR (11) not null, 
-     Email VARCHAR(100) not null,
-    Senha VARCHAR(50)not null,
-    Tipo VARCHAR(20) ,
-    DataRegistro DATE
+    DataNascimento DATE not null,
+    Genero VARCHAR(10) not null,
+    Endereco VARCHAR(100) not null,
+    NumeroTelefone VARCHAR(15) not null,
+    PlanoSaudeID INT not null,
+    UsuarioID INT not null,
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
+    FOREIGN KEY (PlanoSaudeID) REFERENCES PlanosSaude(PlanoSaudeID)
     );
+
+CREATE TABLE Medicos (
+    MedicoID INT PRIMARY KEY auto_increment,
+    Nome VARCHAR(50) not null,
+    Especialidade VARCHAR(50) not null,
+    HorarioAtendimento VARCHAR(100),
+    NumConsultasRealizadas INT,
+    FuncionarioID INT not null,
+    FOREIGN KEY (FuncionarioID) REFERENCES Funcionarios(FuncionarioID)
+);
+
+CREATE TABLE Consultas (
+    ConsultaID INT PRIMARY KEY auto_increment,
+    DataHora DATETIME not null,
+    MedicoID INT not null,
+    PacienteID INT not null,
+    Status VARCHAR(20),
+    FOREIGN KEY (MedicoID) REFERENCES Medicos(MedicoID),
+    FOREIGN KEY (PacienteID) REFERENCES Pacientes(PacienteID)
+);
 
 
 CREATE TABLE HistoricoConsultas (
-    HistoricoID INT PRIMARY KEY,
+    HistoricoID INT PRIMARY KEY ,
     ConsultaID INT,
     Diagnostico TEXT,
     ReceitaMedica TEXT,
