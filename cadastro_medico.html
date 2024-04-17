@@ -16,15 +16,32 @@
     <main>
 
       <div class="cadastro-area">
-      <h1>Cadastrar</h1><br>
+      <h1>Novo Médico</h1><br>
         <form action="back-end/controlador-cadastro.php" method="post">
-          <div class="homec"><a href="index.html"><img src="images/favicon.ico.png" alt="home"></a></div> <!-- div que vai receber a imagem da home -->
+          <div class="homec"><a href="home.html"><img src="images/favicon.ico.png" alt="home"></a></div> <!-- div que vai receber a imagem da home -->
+            <label>&ensp;Nome<br>
+            <input type="text" name="Nome" class="input-campo" required id="input-email" size="28" placeholder="  Nome Aqui"></label><br><br>
             <label>&ensp;Email<br>
             <input type="email" name="email" class="input-campo" required id="input-email" size="28" placeholder="  exmp@clinicor.com"></label><br><br>
             <label>&ensp;Senha<br>
             <input type="password" name="senha" class="input-campo" required id="input-senha" size="28" placeholder="  •••••••"></label><br><br>
             <label>&ensp;Confirmar Senha<br>
-            <input type="password" name="senha-confirmar" class="input-campo" required id="input-confirmar-senha" size="28"></label><br><br>
+            <input type="password" name="senha" class="input-campo" required id="input-senha" size="28"></label><br><br>
+
+            <form action="">
+                <label>&ensp;Foto<br>
+                <input type="file" name="Enviar Foto" class="input-campo" required id="input-imagem" size="40" accept="image/*"></label><br><br>
+            </form>
+
+            <label>&ensp;Cargo<br>
+            <input type="text" name="Cargo" class="input-campo" required id="input-nome" size="28" placeholder="  Cargo Aqui"></label><br><br>
+            <label>&ensp;Setor<br>
+            <input type="text" name="Setor" class="input-campo" required id="input-Setor" size="28" placeholder="  Setor Aqui"></label><br><br>
+            <label>&ensp;Data de Contrato<br>
+            <input type="text" name="contrato" class="input-campo" required id="input-Contrato" size="28" placeholder="  Data de contratação aqui"></label><br><br>
+            <label>&ensp;Salário<br>
+            <input type="text" name="salario" class="input-campo" required id="input-Salario" size="28" placeholder="  Salario"></label><br><br>
+
             <button class="button" type="button"><a href="login.html">Cancelar</a></button>
             <input type="submit" value="Concluir" class="button">
         </form>
