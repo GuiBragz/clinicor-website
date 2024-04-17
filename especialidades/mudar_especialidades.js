@@ -4,6 +4,8 @@ var tema = localStorage.getItem('tema') === 'true';
 var especialidades_texto = document.querySelectorAll('.especialidade_boby');
 var h1 = document.querySelectorAll('.titulo_');
 
+var iframe = document.querySelector('.iframe');
+
 // Função para atualizar o tema da página
 function atualizarTema() {
     if (tema) {
@@ -37,5 +39,14 @@ window.addEventListener('message', function(event) {
         tema = !tema; // Inverte o valor de tema
         localStorage.setItem('tema', tema); // Salva o valor de tema no localStorage
         atualizarTema(); // Atualiza o tema da página conforme o novo valor de tema
+    }
+});
+
+window.addEventListener('message', function(event) {
+    if (event.data === 'alterarMenu' && iframe.offsetHeight === 110) {
+        // Altera a altura do iframe para 210px
+        iframe.style.height = '310px';
+    } else {
+        iframe.style.height = '110px';
     }
 });
