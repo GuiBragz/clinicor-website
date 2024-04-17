@@ -22,7 +22,7 @@
         // Verifica se o email já está em uso
         if(usuarioJaExiste($conexao, $email)) {
             echo "<script>window.alert('Erro ao cadastrar usuário! Email já está em uso');</script>";
-            echo "<script>window.location.href = '../cadastro.html';</script>";
+            echo "<script>window.location.href = '../cadastro_user.html';</script>";
             exit;
         }
     
@@ -39,7 +39,7 @@
             echo "<script>window.location.href = '../login.html';</script>";
         } else {
             echo "<script>window.alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
-            echo "<script>window.location.href = '../cadastro.html';</script>";
+            echo "<script>window.location.href = '../cadastro_user.html';</script>";
         }
     
         $stmt->close();
