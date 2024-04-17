@@ -246,19 +246,22 @@
             cursor: pointer;
         }
         
-        .tabela{
+        .tabela {
           position: absolute;
-          top: 310px;
-          left: 1218px;
-          transform: translate(-50%, -50%);
-          display: flex;
-          flex-direction: column;
-          align-items: center;
-        }
+          top: 450px;
+          left: 800px;
+          width: 12px;
+          height: 54px;
+          }
 
-        .retangulo{
-            width: 185px;
-            height: 650px;
+          .retangulo {
+             /* Adicione as propriedades de posicionamento que deseja para mover o retângulo */
+            position: absolute;
+            top: 50%; /* Exemplo: mover 50% da altura da tabela */
+            left: 50%; /* Exemplo: mover 50% da largura da tabela */
+            transform: translate(-50%, -50%); /* Centralizando o retângulo no centro da tabela */
+            width: 800px;
+            height: 600px;
             background-color: #fafafa;
             border: 1px solid #A93A2F;
             border-radius: 25px;
@@ -268,7 +271,8 @@
             align-items: center;
             cursor: pointer;
             margin: 4px; /* Adicione margem entre os quadrados */
-        }
+          }
+
         .consulta-recente{
           position: relative;
           top: -10px;
@@ -494,8 +498,8 @@
           <div class="circulo">
             <i class="bi bi-person-fill"></i>
           </div>
-          <div class="nome">Nome do Médico</div>
-          <div class="fucao">Função</div>
+          <div class="nome">Nome do paciente</div>
+          <div class="fucao">Histórico</div>
         </div>
         <div class="pessoa-card" style="left: 90px; top: 250px;" onclick="openOverlay()">
           <i class="bi bi-person-badge-fill"></i>
@@ -510,7 +514,6 @@
           Informações:
           Nome:Fulano(a)x <p></p>
           Idade:X         <p></p>
-          Cargo:CargoX    <p></p>
           Descrição do Funcionario: altura, cor de cabelo, cor dos olhos etc   
       </div>
       <div class="search-box">
@@ -518,105 +521,21 @@
         <button><i class="bi bi-search"></i></button>
     </div> 
       <div class="centralizar">
-        <div class="consultas-dias"><h2>Consultas do Dia:</h2></div>
+        <div class="consultas-dias"><h2>Consultas marcadas:</h2></div>
         <div class="quadrados-container">
             <a href="link_para_pacientes" class="quadrado">
                 <div class="imagem"><i class="bi bi-person-fill"></i></div>
                 <div class="list"><i class="bi bi-list"></i></div>
+                <div class="tipo-consulta">Tipo de Consulta</div>
                 <div class="hora">12:00</div>
-                <div class="paciente">Nome do Paciente</div>
-                <div class="tipo-consulta">Tipo de Consulta</div>
+                <div class="tipo-consulta">01/02/2024</div>
             </a>
-            <a href="link_para_pacientes" class="quadrado">
-                <div class="imagem"><i class="bi bi-person-fill"></i></div>
-                <div class="list"><i class="bi bi-list"></i></div>
-                <div class="hora">12:30</div>
-                <div class="paciente">Nome do Paciente</div>
-                <div class="tipo-consulta">Tipo de Consulta</div>
-            </a>
-            <a href="link_para_pacientes" class="quadrado">
-                <div class="imagem"><i class="bi bi-person-fill"></i></div>
-                <div class="list"><i class="bi bi-list"></i></div>
-                <div class="hora">13:00</div>
-                <div class="paciente">Nome do Paciente</div>
-                <div class="tipo-consulta">Tipo de Consulta</div>
-            </a> 
         </div>
     </div>
     
-    <div class="centralizar2">
-      <div class="quadrados-container">
-        <a href="link_para_pacientes" class="quadrado">
-            <div class="imagem"><i class="bi bi-person-fill"></i></div>
-            <div class="list"><i class="bi bi-list"></i></div>
-            <div class="hora">13:30</div>
-            <div class="paciente">Nome do Paciente</div>
-            <div class="tipo-consulta">Tipo de Consulta</div>
-        </a>
-        <a href="link_para_pacientes" class="quadrado">
-            <div class="imagem"><i class="bi bi-person-fill"></i></div>
-            <div class="list"><i class="bi bi-list"></i></div>
-            <div class="hora">14:00</div>
-            <div class="paciente">Nome do Paciente</div>
-            <div class="tipo-consulta">Tipo de Consulta</div>
-        </a>
-        <a href="link_para_pacientes" class="quadrado">
-            <div class="imagem"><i class="bi bi-person-fill"></i></div>
-            <div class="list"><i class="bi bi-list"></i></div>
-            <div class="hora">14:30</div>
-            <div class="paciente">Nome do Paciente</div>
-            <div class="tipo-consulta">Tipo de Consulta</div>
-        </a>
-    </div>
-    </div>
-    <div class="centralizar3">
-      <div class="quadrados-container">
-          <a href="link_para_pacientes" class="quadrado">
-              <div class="imagem"><i class="bi bi-person-fill"></i></div>
-              <div class="list"><i class="bi bi-list"></i></div>
-              <div class="hora">15:00</div>
-              <div class="paciente">Nome do Paciente</div>
-              <div class="tipo-consulta">Tipo de Consulta</div>
-          </a>
-          <a href="link_para_pacientes" class="quadrado">
-              <div class="imagem"><i class="bi bi-person-fill"></i></div>
-              <div class="list"><i class="bi bi-list"></i></div>
-              <div class="hora">15:30</div>
-              <div class="paciente">Nome do Paciente</div>
-              <div class="tipo-consulta">Tipo de Consulta</div>
-          </a>
-          <a href="link_para_pacientes" class="quadrado">
-              <div class="imagem"><i class="bi bi-person-fill"></i></div>
-              <div class="list"><i class="bi bi-list"></i></div>
-              <div class="hora">16:00</div>
-              <div class="paciente">Nome do Paciente</div>
-              <div class="tipo-consulta">Tipo de Consulta</div>
-          </a>
-      </div>
-  </div> 
   <div class="tabela">
     <a href="link_pra_pacientes" class="retangulo">
-      <div class="imagem2"><i class="bi bi-person-fill"></i></div>
-      <div class="consulta-recente"><p>Consultas Recentes:</p></div>
-      <div class="hora2">16:00 - 01/02/2024</div>
-      <div class="paciente2">Nome do Paciente</div>
-      <div class="tipo-consulta2">Tipo de Consulta</div>
-        <div class="imagem3"><i class="bi bi-person-fill"></i></div>
-        <div class="hora3">15:00 - 02/02/2024</div>
-        <div class="paciente3">Nome do Paciente</div>
-        <div class="tipo-consulta3">Tipo de Consulta</div>   
-        <div class="imagem4"><i class="bi bi-person-fill"></i></div>
-        <div class="hora4">14:00 - 03/02/2024</div>
-        <div class="paciente4">Nome do Paciente</div>
-        <div class="tipo-consulta4">Tipo de Consulta</div>
-        <div class="imagem5"><i class="bi bi-person-fill"></i></div>
-        <div class="hora5">11:00 - 05/02/2024</div>
-        <div class="paciente5">Nome do Paciente</div>
-        <div class="tipo-consulta5">Tipo de Consulta</div>
-        <div class="imagem6"><i class="bi bi-person-fill"></i></div>
-        <div class="hora6">10:00 - 10/02/2024</div>
-        <div class="paciente6">Nome do Paciente</div>
-        <div class="tipo-consulta6">Tipo de Consulta</div>        
+         
   </a>
 </div>
     </form> 
