@@ -8,10 +8,6 @@
     <link rel="icon" href="images/favicon.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
     <style>
-        body {
-    overflow: hidden;
-}
-
         /* Estilos adicionados */
         .funcionario-info {
             position: absolute;
@@ -127,43 +123,45 @@
             width: 100%;
         }
         /* Estilos dos retângulos */
-.retangulo {
-    width: 400px;
-    height: 80px;
-    background-color: #fafafa;
-    border: 1px solid #A93A2F;
-    border-radius: 25px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 20px auto;
-    cursor: pointer;
-    
-}
+        .retangulo {
+            width: 400px;
+            height: 80px;
+            background-color: #fafafa;
+            border: 1px solid #A93A2F;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            cursor: pointer;
+        }
 
-/* Estilos do texto dentro dos retângulos */
-.retangulo p {
-    margin: 0;
-    font-size: 18px;
-    color: #A93A2F;
-    font-weight: bold;
-    text-align: center;
-}
-.centralizar {
-    position: absolute;
-    top: 45%;
-    left: 65%;
-    transform: translate(-50%, -50%);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-}
-/*Retirar a linha azul dos links dos medicos, pacientes e nova consulta*/
-a {
-    text-decoration: none;
-} 
-/* painel de pesquisa*/
-.search-box {
+        /* Estilos do texto dentro dos retângulos */
+        .retangulo p {
+            margin: 0;
+            font-size: 18px;
+            color: #A93A2F;
+            font-weight: bold;
+            text-align: center;
+        }
+
+        .centralizar {
+            position: absolute;
+            top: 45%;
+            left: 65%;
+            transform: translate(-50%, -50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        /*Retirar a linha azul dos links dos medicos, pacientes e nova consulta*/
+        a {
+            text-decoration: none;
+        } 
+
+        /* painel de pesquisa*/
+        .search-box {
             width: 300px;
             padding: 0px;
             border: 1px solid #ccc;
@@ -171,35 +169,44 @@ a {
             display: flex;
             align-items: center;
             margin-top: -300px;
-            margin-left: -20px;
         }
-/*tamanho da barra*/
+
+        /*tamanho da barra*/
         .search-box input[type="text"] {
             flex: 1;
             border: none;
             padding: 8px;
             font-size: 14px;
-            
         }
 
-        .link-container {
-            display: inline-block; /* Para ocupar apenas o espaço necessário */
-            padding: 10px; /* Espaçamento interno ao redor do link */
-            border: 1px solid #000; /* Borda para visualização */
-            background-color: #f0f0f0; /* Cor de fundo */
-            border-radius: 5px; /* Borda arredondada */
+
+
+        .faleconosco-box {
+            width: 300px;
+            height: 80px;
+            background-color: #fafafa;
+            border: 1px solid #A93A2F;
+            border-radius: 25px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px auto;
+            cursor: pointer;
+            position: relative;
+            top: 800px;
+            left: -25px;
         }
 
-        /* Estilizando o link */
-        .link-container a {
-            text-decoration: none; /* Remover sublinhado padrão */
-            color: #000; /* Cor do texto */
+        .faleconosco-box p {
+            margin: 0;
+            font-size: 18px;
+            color: #A93A2F;
+            font-weight: bold;
+            text-align: center;
         }
-        
     </style>
 </head>
 <body>
-
     
     <iframe src="barraFuncionario.html" width="100%" height="110px" frameborder="0"></iframe>
     <form action="">
@@ -212,13 +219,17 @@ a {
                 <div class="circulo">
                     <i class="bi bi-person-fill"></i>
                 </div>
-                <div class="nome">Nome do Funcionário</div>
-                <div class="funcao">FUNÇÃO</div>
+                <div class="nome">Nome do Paciente</div>
             </div>
             <div class="pessoa-card" style="left: 90px; top: 190px;" onclick="openOverlay()">
                 <i class="bi bi-person-badge-fill"></i>
                 <p>Informações Pessoais</p>
             </div>
+        </div>
+        <div class="faleconosco-box">
+            <a href="mailto:seuemail@exemplo.com">
+                <p>Contato</p>
+            </a>
         </div>
         <!-- Caixa de sobreposição -->
         <div class="overlay" id="overlay" onclick="closeOverlay()"></div>
@@ -229,33 +240,25 @@ a {
             Informações:
             Nome:Fulano(a)x <p></p>
             Idade:X         <p></p>
-            Cargo:CargoX    <p></p>
             Descrição do Funcionario: altura, cor de cabelo, cor dos olhos etc   
+            
         </div>
   
         <div class="centralizar">
         
-            <a href="link_para_pacientes">
-                <div class="retangulo" >
-                    <a href="Paginadospacientes.html">
-                    <p>Pacientes</p>
+            <a href="Desmarcar.html">
+                <div class="retangulo">
+                    <p>Consultas marcadas</p>
                 </div>
             </a>
-        
-
-            <a href="link_para_nova_consulta">
+            
+            <a href="MarcarConsulta.html">
                 <div class="retangulo">
-                    <a href="MarcarConsulta.html">
                     <p>Nova Consulta</p>
                 </div>
             </a>
             
-            <a href="link_Desmarcar">
-                <div class="retangulo">
-                    <a href="Desmarcar.html">
-                    <p>Desmarcar</p>
-                </div>
-            </a>
+
         </div> 
     </form>
     <script src="mudarhome.js"></script>
@@ -271,16 +274,7 @@ a {
             document.getElementById("popup").style.display = "none";
             document.getElementById("overlay").style.display = "none";
         }
-        // Desabilitar a rolagem
-function disableScroll() {
-    document.body.style.overflow = 'hidden';
-}
-
-// Reabilitar a rolagem
-function enableScroll() {
-    document.body.style.overflow = 'auto';
-}
-
+        
     </script>
 </body>
 </html>

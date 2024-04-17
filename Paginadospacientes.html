@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clinicor - homepage</title>
+    <link rel="stylesheet" href="csshome.css">
+    <link rel="icon" href="images/favicon.ico.png" type="image/x-icon">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+    <style>
+        /* Estilos para as caixas */
+        .box {
+            position: relative; /* Adicionando posição relativa para o ícone */
+            width: 200px;
+            height: 100px;
+            background-color: #fafafa;
+            border: 1px solid #A93A2F;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            display: inline-block;
+            text-align: center;
+            vertical-align: top; /* Ajustando alinhamento vertical */
+        }
+
+        .box p {
+            margin: 30px 0 0; /* Adicionando espaçamento no topo */
+            font-size: 16px;
+            color: #A93A2F;
+            font-weight: bold;
+        }
+
+        .box span {
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        /* Estilo do ícone */
+        .box i {
+            position: absolute;
+            top: 10px; /* Posicionando o ícone acima do nome do paciente */
+            left: 50%; /* Centralizando horizontalmente */
+            transform: translateX(-50%);
+            color: #FEA625;
+            font-size: 30px;
+        }
+
+
+        /* Estilo da checkbox */
+        .box input[type="checkbox"] {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+
+        /* Estilo das caixas adicionais à direita */
+        .right-box {
+            position: absolute;
+            width: 200px;
+            height: 100px;
+            background-color: #fafafa;
+            border: 1px solid #A93A2F;
+            border-radius: 10px;
+            margin: 10px;
+            padding: 10px;
+            text-align: center;
+            display: inline-block;
+            vertical-align: top; /* Alinhamento vertical */
+            right: 600px; /* Alinhar à direita */
+            margin-top: -274px; /* Espaçamento entre as caixas */
+        }
+
+        .right-box p {
+            margin: 30px 0 0; /* Adicionando espaçamento no topo */
+            font-size: 16px;
+            color: #A93A2F;
+            font-weight: bold;
+        }
+
+        .right-box span {
+            font-style: italic;
+            font-size: 14px;
+        }
+
+        .right-box i {
+            position: absolute;
+            top: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #FEA625;
+            font-size: 30px;
+        }
+
+        .right-box input[type="checkbox"] {
+            position: absolute;
+            bottom: 10px;
+            left: 10px;
+        }
+        .search-box {
+            width: 300px;
+            padding: 0px;
+            border: 1px solid #ccc;
+            border-radius: 1px;
+            display: flex;
+            align-items: center;
+            margin-top: 0px;
+            margin-left: 10px;
+         
+        }
+        
+/*tamanho da barra*/
+        .search-box input[type="text"] {
+            flex: 1;
+            border: none;
+            padding: 8px;
+            font-size: 14px;
+            
+        }
+/* Botao de pesquisar*/
+        .search-box button {
+            border: none;
+            background-color: #007bff;
+            color: white;
+            padding: 9px;
+            border-radius: 0 2px 2px 0;
+            cursor: pointer;
+        }
+
+        /* Estilo dos botões de navegação */
+        .navigation {
+            text-align: center;
+            margin-top: 20px;
+            margin-right: 1600px;
+        }
+    </style>
+    </style>
+</head>
+<body>
+    <iframe src="homefunc.html" width="100%" height="110px" frameborder="0"></iframe>
+    <form action="">
+        <div>
+            <img src="images/slide_background_home.png" alt="" class="imagemfundo">
+        </div>
+        <div class="search-box" style="left: 100px;">
+            <input type="text" placeholder="Pesquisar...">
+            <button><i class="bi bi-search"></i></button>
+        </div>
+        <!-- Caixas existentes -->
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <br>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <div class="box">
+            <i class="bi bi-person-fill"></i>
+            <p>Nome do Paciente</p>
+            <span>Tipo de Consulta</span>
+            <input type="checkbox">
+        </div>
+        <!-- Botões de navegação -->
+        <div class="navigation">
+            <button onclick="showPage(1)">Página Anterior</button>
+            <button onclick="showPage(2)">Próxima Página</button>
+        </div>
+    </form>
+    <script>
+        function showPage(pageNumber) 
+            // Esconder todas as caixas
+            var boxes = document.querySelectorAll('.box');
+            boxes.forEach(function(box) {
+                box.style.display = 'none';
+            });
+
+            // Mostrar caixas da página selecionada
+            var startIndex = pageNumber - 1
+        
+    </form>
+    <script src="mudarhome.js"></script>
+</body>
+</html>
