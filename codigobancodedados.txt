@@ -1,5 +1,5 @@
 
-drop database clinicordb;
+
 create database clinicordb;
 use clinicordb;
 
@@ -12,7 +12,7 @@ CREATE TABLE PlanosSaude (
 CREATE TABLE Usuarios (
     UsuarioID INT PRIMARY KEY auto_increment,
      Email VARCHAR(100),
-    Senha VARCHAR(50),
+    Senha VARCHAR(100),
     Tipo VARCHAR(20),
     DataRegistro DATE,
     CodigoRecuperaSenha varchar(8) 
@@ -34,7 +34,7 @@ CREATE TABLE Pacientes (
     Genero VARCHAR(10) not null,
     Endereco VARCHAR(100) not null,
     NumeroTelefone VARCHAR(15) not null,
-    PlanoSaudeID INT not null,
+    PlanoSaudeID INT ,
     UsuarioID INT not null,
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
     FOREIGN KEY (PlanoSaudeID) REFERENCES PlanosSaude(PlanoSaudeID)
