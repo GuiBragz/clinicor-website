@@ -7,6 +7,19 @@
     <link rel="stylesheet" href="cssmarcarconsulta_exames.css">
     <link rel="icon" href="../images/favicon.ico.png" type="image/x-icon">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        .error-message {
+            color: red;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none; /* Inicialmente, oculte as mensagens de erro */
+        }
+
+        .option-container2 input,
+        .option-container2 select {
+            margin-bottom: 10px;
+        }
+    </style>
 </head>
 <body>
     
@@ -14,6 +27,14 @@
 
     <!-- opções de marcar especialista, dia, hora, médico, adicionar informações de quem irá para consulta e meio de contato para confirmação do exame e forma de pagamento-->
     <div class="container">
+        <div class="option-container">
+            <p class="option-label">Escolha o procedimento:</p>
+            <select name="procedimento" id="procedimento">
+                <option value="exame">Exame</option>
+                <option value="consulta">Consulta</option>
+            </select>
+        </div>
+
         <div class="option-container">
             <p class="option-label">Escolha a especialidade:</p>
             <select name="especialidade" id="especialidade">
@@ -52,21 +73,6 @@
             <p class="option-label">Escolha o médico:</p>
             <select name="medico" id="medico">
                 <option value="Medico_Angiologia">Medico Angiologia Fulano(a)X</option>
-                <option value="Medico_Cardiologia">Medico Cardiologia Fulano(a)X</option>
-                <option value="medico_cirurgia_geral">Médico Cirurgião Geral Fulano(a)X</option>
-                <option value="medico_dermatologia">Médico Dermatologista Fulano(a)X</option>
-                <option value="medico_endocrinologia">Médico Endocrinologista Fulano(a)X</option>
-                <option value="medico_fonoaudiologia">Médico Fonoaudiologista Fulano(a)X</option>
-                <option value="medico_gastroenterologia">Médico Gastroenterologista Fulano(a)X</option>
-                <option value="medico_ginecologia_obstetricia">Médico Ginecologista (Obstetra) Fulano(a)X</option>
-                <option value="medico_mastologia">Médico Mastologista Fulano(a)X</option>
-                <option value="medico_neurologia">Médico Neurologista Fulano(a)X</option>
-                <option value="medico_oftalmologia">Médico Oftalmologista Fulano(a)X</option>
-                <option value="medico_ortopedia">Médico Ortopedista Fulano(a)X</option>
-                <option value="medico_otorrinolaringologia">Médico Otorrinolaringologista Fulano(a)X</option>
-                <option value="medico_pneumologia">Médico Pneumologista Fulano(a)X</option>
-                <option value="medico_urologia">Médico Urologista Fulano(a)X</option>
-                <option value="medico_reumatologia">Médico Reumatologista Fulano(a)X</option>
             </select>
         </div>
 
@@ -90,12 +96,15 @@
         <div class="option-container2">
             <p class="option-label">Nome:</p>
             <input type="text" name="nome" id="nome">
+            <p class="error-message" id="nome-error">Preencha este campo</p>
 
             <p class="option-label">Email:</p>
             <input type="email" name="email" id="email">
+            <p class="error-message" id="email-error">Preencha este campo</p>
 
             <p class="option-label">Telefone:</p>
             <input type="tel" name="telefone" id="telefone">
+            <p class="error-message" id="telefone-error">Preencha este campo</p>
 
             <p class="option-label">Forma de pagamento:</p>
             <select name="forma_pagamento" id="forma_pagamento">
@@ -107,6 +116,7 @@
             <p class="option-label">Confirmação:</p>
             <input type="checkbox" name="confirmacao" id="confirmacao">
             <label for="confirmacao">Estou ciente de que, em caso de falta sem justificativa, precisarei pagar uma taxa.</label>
+            <p class="error-message" id="confirmacao-error">Você deve concordar com isso</p>
         </div>
 
         <div class="button-container">
@@ -118,6 +128,7 @@
     <script>
         // Função para limpar o formulário
         function limparFormulario() {
+            document.getElementById('procedimento').value = '';
             document.getElementById('especialidade').value = '';
             document.getElementById('dia').value = '';
             document.getElementById('medico').value = '';
@@ -127,24 +138,72 @@
             document.getElementById('telefone').value = '';
             document.getElementById('forma_pagamento').value = '';
             document.getElementById('confirmacao').checked = false;
+
+            // Oculta todas as mensagens de erro ao limpar o formulário
+            var errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(function(errorMessage) {
+                errorMessage.style.display = 'none';
+            });
+        }
+
+        // Função para validar o formulário antes de enviar
+        function validarFormulario() {
+            var nome = document.getElementById('nome').value;
+            var email = document.getElementById('email').value;
+            var telefone = document.getElementById('telefone').value;
+            var confirmacao = document.getElementById('confirmacao').checked;
+
+            var isValid = true;
+
+            // Verifica se os campos obrigatórios estão vazios
+            if (nome === '') {
+                document.getElementById('nome-error').style.display = 'inline-block';
+                isValid = false;
+            } else {
+                document.getElementById('nome-error').style.display = 'none';
+            }
+
+            if (email === '') {
+                document.getElementById('email-error').style.display = 'inline-block';
+                isValid = false;
+            } else {
+                document.getElementById('email-error').style.display = 'none';
+            }
+
+            if (telefone === '') {
+                document.getElementById('telefone-error').style.display = 'inline-block';
+                isValid = false;
+            } else {
+                document.getElementById('telefone-error').style.display = 'none';
+            }
+
+            if (!confirmacao) {
+                document.getElementById('confirmacao-error').style.display = 'inline-block';
+                isValid = false;
+            } else {
+                document.getElementById('confirmacao-error').style.display = 'none';
+            }
+
+            return isValid;
         }
 
         // Adicionando evento de clique ao botão "Limpar"
         document.getElementById('limpar').addEventListener('click', function() {
             limparFormulario(); // Chama a função para limpar o formulário
         });
-    </script>
 
-    <script>
+        // Adicionando evento de clique ao botão "Enviar"
+        document.getElementById('enviar').addEventListener('click', function() {
+            if (validarFormulario()) {
+                // Se o formulário for válido, chama a função para mostrar o pop-up de sucesso
+                mostrarPopUp();
+            }
+        });
+
         // Função para mostrar um pop-up de sucesso ao enviar o formulário
         function mostrarPopUp() {
             alert('Formulário enviado com sucesso!');
         }
-
-        // Adicionando evento de clique ao botão "Enviar"
-        document.getElementById('enviar').addEventListener('click', function() {
-            mostrarPopUp(); // Chama a função para mostrar o pop-up de sucesso
-        });
     </script>
 
 </body>
