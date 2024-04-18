@@ -197,3 +197,30 @@ body {
 .deadsec a{
     color: #FEA625;
 }
+@media screen and (max-width: 1238px) {
+    #log,
+    #cad,
+    .linha {
+        display: none;
+    }
+
+    .linha a {
+        margin-left: 20px; /* ou qualquer valor que você deseje */
+    }
+
+    .linha {
+        margin-left: 20px; /* ou qualquer valor que você deseje */
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
