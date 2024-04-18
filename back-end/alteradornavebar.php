@@ -4,6 +4,7 @@
 include_once 'crud/read.php';
 include_once 'connection.php';
 
+
 function alteradornavebar() {
     // Verifica se a sessão está ativa e se o email do usuário está definido na sessão
     if (isset($_SESSION['usuario_email'])) {

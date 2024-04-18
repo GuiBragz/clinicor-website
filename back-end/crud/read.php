@@ -1,8 +1,8 @@
 <?php
     session_start();
-    include_once '../back-end/connection.php';
-    include_once '../back-end/models/usuario.php';
-    include_once '../back-end/connection.php';
+    include_once './back-end/connection.php';
+    include_once './back-end/models/usuario.php';
+    include_once './back-end/connection.php';
 
 
     // Função para verificar as credenciais no banco de dados
