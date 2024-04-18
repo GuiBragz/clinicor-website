@@ -4,17 +4,16 @@
         $server = 'localhost';
         $username = 'root';
         $password = '3838jaum';
-        $bdname = 'clinicordb';
+        $dbname = 'clinicordb';
 
         // Conectar com o banco de dados.
-        $conexao = mysqli_connect($server, $username, $password, $bdname);
+        $conexao = new mysqli($server, $username, $password, $dbname);
 
-        // Se a conexão for verdadeira, irá conectar com o banco de dados. Caso contrário, irá mostra um erro de conexão.
-        if (!$conexao) {
-            die("Conexao falhou: " . mysqli_connect_error());
-        } else {
-            
-            return $conexao;
+        // Verificar se há erros na conexão
+        if ($conexao->connect_error) {
+            die("Conexão falhou: " . $conexao->connect_error);
         }
+
+        return $conexao;
     }
 ?>

@@ -3,7 +3,10 @@ include_once '../back-end/connection.php';
 include_once '../back-end/models/funcionario.php';
 include_once '../back-end/crud/read.php';
 
-$funcionariosArray = preencherArrayFuncionarios($conn);
+$conexao = getConnection();
+
+// Preenchendo o array de funcionários
+$funcionariosArray = preencherArrayFuncionarios($conexao);
 ?>
 
 <!DOCTYPE html>
@@ -16,19 +19,20 @@ $funcionariosArray = preencherArrayFuncionarios($conn);
 </head>
 <body>
     <iframe src="../barra.html" width="100%" height="110px" frameborder="0" class="iframe"></iframe>
-        <form action="">
+    <form action="">
         <div class="sub">
-        <?php
-            while ($dado = mysqli_fetch_array($resultadomed)) {
-            echo '<div class="medico">
-                    <img src="../images/favicon.ico.png" alt="Foto do médico">
-                    <h1 class="texto">'. $dado["Email"] . '</h1>
-                    <p class="subtexto"><i>'. $dado["Tipo"] .'</i></p>
-                </div>';
+            <?php
+            // Iterando sobre o array de funcionários utilizando foreach
+            foreach ($funcionariosArray as $funcionario) {
+                echo '<div class="medico">
+                        <img src="../images/favicon.ico.png" alt="Foto do médico">
+                        <h1 class="texto">'. $funcionario->getNome() . '</h1>
+                        <p class="subtexto"><i>'. $funcionario->getCargo() .'</i></p>
+                    </div>';
             }
-        ?>
+            ?>
         </div>
-        </form>
+    </form>
     
     <img src="../images/slide_background_out.png" alt="" class="back">
     <script src="../java script/mudarlista.js"></script>
