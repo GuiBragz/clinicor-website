@@ -1,0 +1,59 @@
+body{
+    background-image: url('images/login-background.jpg'); /* URL da imagem, o "../" serve para falar que o conteúdo está em uma pasta anterior ao arquivo CSS */
+  background-size: cover;
+}
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: left;
+            gap: 10px;
+            padding: 15px;
+            background-color: #8E1818;
+            max-width: 600px;
+            margin-top: 30px;
+            margin-left: 30px;
+            box-sizing: border-box;
+            border-radius: 10px;
+        }
+
+        .option-container, .option-container2 {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: left;
+            border-radius: 8px;
+            background-color: rgba(204, 204, 204, 0.9);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        select, input {
+            margin-left: 10px;
+            padding: 10px;
+            font-size: 16px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+        .option-label{
+            margin-left: 10px;
+
+        }
+        .button-container {
+            display: flex;
+            gap: 20px;
+        }
+
+        .button {
+            justify-content: center;
+            background-color: #ccc;
+            border: none;
+            color: black;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            font-size: 16px;
+            cursor: pointer;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        .button:hover {
+            background-color: #737373;
+        }
