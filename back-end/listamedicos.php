@@ -1,7 +1,8 @@
 <?php
-include_once 'connection.php';
-include_once 'models/funcionario.php';
-include_once 'crud/read.php';
+include_once '../back-end/connection.php';
+include_once '../back-end/models/funcionario.php';
+include_once '../back-end/crud/read.php';
+
 
 $conexao = getConnection();
 

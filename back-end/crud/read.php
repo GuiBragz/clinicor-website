@@ -1,13 +1,17 @@
 <?php
     session_start();
-    include_once './back-end/connection.php';
-    include_once './back-end/models/usuario.php';
-    include_once './back-end/connection.php';
+
+    
 
 
     // Função para verificar as credenciais no banco de dados
     function verificarCredenciaisNoBanco($email, $senha) {
         // Criar uma instância da classe Connection
+        include_once './back-end/connection.php';
+        include_once './back-end/models/usuario.php';
+        include_once './back-end/models/funcionario.php';
+
+
         $conexao = getConnection();
 
         // Faz uma query no MySQL para verificar se as credenciais estão corretas
@@ -35,6 +39,12 @@
 
     // Função para buscar os dados do usuário no MySQL e armazenar em um objeto
     function buscarUsuarioPorEmail($email) {
+        include_once './back-end/connection.php';
+        include_once './back-end/models/usuario.php';
+        include_once './back-end/models/funcionario.php';
+
+
+
         // Criar uma instância da classe Connection
         $conexao = getConnection();
         
@@ -66,6 +76,11 @@
         }}
 
         function VerificaEmailNoReturnDados($email) {
+            include_once './back-end/connection.php';
+            include_once './back-end/models/usuario.php';
+            include_once './back-end/models/funcionario.php';
+
+
             // Criar uma instância da classe Connection
             $conexao = getConnection();
             
@@ -85,7 +100,14 @@
 
 
             function buscarCodigoRecuperacao($CodigoRecuperaSenha) {
+                include_once './back-end/connection.php';
+                include_once './back-end/models/usuario.php';
+                include_once './back-end/models/funcionario.php';
+
+
                 $conexao = getConnection();
+
+                
             
                 // Prevenir SQL Injection usando consultas preparadas
                 $stmt = $conexao->prepare("SELECT * FROM Usuarios WHERE CodigoRecuperaSenha = ?");
@@ -104,6 +126,11 @@
             
     // Função para preencher um array com os dados da tabela Funcionarios
     function preencherArrayFuncionarios($conn) {
+        
+
+        include_once '../back-end/connection.php';
+        include_once '../back-end/models/usuario.php';
+        include_once '../back-end/models/funcionario.php';
         // Array para armazenar os funcionários
         $funcionarios = array();
         // Obtendo a conexão com o banco de dados
