@@ -1,18 +1,18 @@
 <?php
+session_start();
 
 include_once 'connection.php';
 include_once 'models/usuario.php';
 include_once 'crud/read.php';
 
 // Função para realizar o login
-function login($email, $senha){
-    session_start();
+function login($email, $senha) {
     $usuario = buscarUsuarioPorEmail($email);
-    
+
     if ($usuario !== null && password_verify($senha, $usuario->getSenha())) {
         $_SESSION['usuario_email'] = $email;
         echo "<script>window.alert('Login realizado com sucesso!');</script>";
-        echo "<script>window.location.href = '../index.html';</script>";
+        echo "<script>window.location.href = '../index.php';</script>";
     } else {
         echo "<script>window.alert('Email ou senha incorretos!');</script>";
         echo "<script>window.location.href = '../login.html';</script>";
