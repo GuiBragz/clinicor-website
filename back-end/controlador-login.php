@@ -1,11 +1,12 @@
 <?php
-session_start();
+
 include_once 'connection.php';
 include_once 'models/usuario.php';
 include_once 'crud/read.php';
 
 // Função para realizar o login
 function login($email, $senha){
+    session_start();
     $usuario = buscarUsuarioPorEmail($email);
     
     if ($usuario !== null && password_verify($senha, $usuario->getSenha())) {

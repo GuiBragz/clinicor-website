@@ -1,7 +1,7 @@
 <?php
-include_once '../back-end/connection.php';
-include_once '../back-end/models/funcionario.php';
-include_once '../back-end/crud/read.php';
+include_once 'connection.php';
+include_once 'models/funcionario.php';
+include_once 'crud/read.php';
 
 $conexao = getConnection();
 
@@ -21,16 +21,14 @@ $funcionariosArray = preencherArrayFuncionarios($conexao);
     <iframe src="../barra.html" width="100%" height="110px" frameborder="0" class="iframe"></iframe>
     <form action="">
         <div class="sub">
-            <?php
-            // Iterando sobre o array de funcionários utilizando foreach
-            foreach ($funcionariosArray as $funcionario) {
-                echo '<div class="medico">
-                        <img src="../images/favicon.ico.png" alt="Foto do médico">
-                        <h1 class="texto">'. $funcionario->getNome() . '</h1>
-                        <p class="subtexto"><i>'. $funcionario->getCargo() .'</i></p>
-                    </div>';
-            }
-            ?>
+            <!-- Iterando sobre o array de funcionários utilizando foreach -->
+            <?php foreach ($funcionariosArray as $funcionario): ?>
+                <div class="medico">
+                    <img src="../images/favicon.ico.png" alt="Foto do médico">
+                    <h1 class="texto"> <?=$funcionario->getNome()?></h1>
+                    <p class="subtexto"><i> <?=$funcionario->getCargo()?></i></p>
+                </div>
+            <?php endforeach ?>
         </div>
     </form>
     

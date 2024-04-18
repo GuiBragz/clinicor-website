@@ -110,8 +110,7 @@ function preencherArrayFuncionarios($conn) {
     $conexao = getConnection();
 
     // Query SQL para selecionar todos os funcionários da tabela Funcionarios
-    $sql = "SELECT * FROM Funcionarios";
-
+    $sql = "SELECT * FROM Funcionarios WHERE cargo = 'Medico'";
     // Executar a query
     $result = $conexao->query($sql);
 

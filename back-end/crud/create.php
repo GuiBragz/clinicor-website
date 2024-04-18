@@ -15,12 +15,12 @@
         
         return $count > 0;
     }
-    function funcionarioJaExiste($conexao, $nome, $foto, $cargo, $setor, $dataContratacao, $salario) {
+    function funcionarioJaExiste($conexao, $nome, $cargo, $setor, $dataContratacao, $salario) {
         $count = 0;
     
         // Preparar a consulta SQL
-        $stmt = $conexao->prepare("SELECT COUNT(*) FROM funcionario WHERE nome = ? AND foto = ? AND cargo = ? AND setor = ? AND dataContratacao = ? AND salario = ?");
-        $stmt->bind_param("ssssss", $nome, $foto, $cargo, $setor, $dataContratacao, $salario);
+        $stmt = $conexao->prepare("SELECT COUNT(*) FROM funcionario WHERE nome = ? AND cargo = ? AND setor = ? AND dataContratacao = ? AND salario = ?");
+        $stmt->bind_param("ssssss", $nome, $cargo, $setor, $dataContratacao, $salario);
         
         // Executar a consulta
         $stmt->execute();
@@ -65,23 +65,27 @@
         $conexao->close();
     }
 
-    function cadastrarFuncionario($email, $senha, $nome, $foto, $cargo, $setor, $dataContratacao, $salario) {
+    function cadastrarFuncionario($email, $senha, $nome, $cargo, $setor, $dataContratacao, $salario, $imagem) {
         // Criar uma instância da classe Connection
         $conexao = getConnection();
         
         // Criptografar a senha
         $senhaCriptografada = password_hash($senha, PASSWORD_DEFAULT);
         
-        // Verificar se o usuário ou funcionário já existe
-        if(usuarioJaExiste($conexao, $email) || funcionarioJaExiste($conexao, $nome, $foto, $cargo, $setor, $dataContratacao, $salario)) {
-            echo "<script>window.alert('Dados já em uso!');</script>";
-            echo "<script>window.location.href = '../cadastro_user.html';</script>";
+        // Sanitizar o email para uso como nome de arquivo
+        $emailSanitizado = filter_var($email, FILTER_SANITIZE_EMAIL);
+        $nomeArquivo = $emailSanitizado . ".jpg";
+        
+        // Verificar se o usuário já existe
+        if (usuarioJaExiste($conexao, $email)) {
+            echo "<script>window.alert('Email já em uso!');</script>";
+            echo "<script>window.location.href = '../cadastro_funcionario.html';</script>";
             exit;
         }
-    
-        // Tentar executar as consultas SQL
+        
+        // Tentar executar a consulta SQL
         try {
-            // Preparar e executar a primeira consulta SQL para inserir na tabela 'usuarios'
+            // Preparar e executar a consulta SQL para inserir na tabela 'usuarios'
             $stmt1 = $conexao->prepare("INSERT INTO Usuarios (Email, Senha, Tipo, DataRegistro) VALUES (?, ?, 'funcionario', NOW())");
             $stmt1->bind_param("ss", $email, $senhaCriptografada);
             $stmt1->execute();
@@ -89,9 +93,9 @@
             // Obter o ID do usuário inserido
             $usuarioID = $stmt1->insert_id;
             
-            // Preparar e executar a segunda consulta SQL para inserir na tabela 'funcionario'
-            $stmt2 = $conexao->prepare("INSERT INTO Funcionarios (foto, Nome, Cargo, Setor, DataContratacao, Salario, UsuarioID) VALUES (?, ?, ?, ?, ?, ?, ?)");
-            $stmt2->bind_param("ssssssi", $foto, $nome, $cargo, $setor, $dataContratacao, $salario, $usuarioID);
+            // Preparar e executar a consulta SQL para inserir na tabela 'funcionarios'
+            $stmt2 = $conexao->prepare("INSERT INTO Funcionarios (Nome, Cargo, Setor, DataContratacao, Salario, Fotourl, UsuarioID) VALUES (?, ?, ?, ?, ?, ?, ?)");
+            $stmt2->bind_param("sssssis", $nome, $cargo, $setor, $dataContratacao, $salario, $nomeArquivo, $usuarioID); // Corrigindo aqui para o tipo de dado correto (s para string)
             $stmt2->execute();
             
             // Verificar se ambas as consultas foram bem-sucedidas
@@ -106,9 +110,11 @@
         } catch (Exception $e) {
             // Se ocorrer um erro, mostrar uma mensagem de erro e redirecionar o usuário para a página de cadastro novamente
             echo "<script>alert('Ocorreu um erro, tente novamente mais tarde!');</script>";
-            echo "<script>window.location.href = '../cadastro_user.html';</script>";
+            echo "<script>window.location.href = '../cadastro_funcionario.html';</script>";
         }
     }
+    
+    
     
 
     function cadastraPaciente($nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $planoSaudeNome, $planoSaudeCobertura) {
