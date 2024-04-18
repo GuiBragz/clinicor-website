@@ -1,5 +1,5 @@
 
-
+drop database clinicordb;
 create database clinicordb;
 use clinicordb;
 
@@ -17,14 +17,15 @@ CREATE TABLE Usuarios (
     DataRegistro DATE,
     CodigoRecuperaSenha varchar(8) 
 );
+
 CREATE TABLE Funcionarios (
     FuncionarioID INT PRIMARY KEY auto_increment,
-    Nome VARCHAR(50),
-    Cargo VARCHAR(50),
-    Setor VARCHAR(50),
-    DataContratacao DATE,
-    Salario DECIMAL(10,2),
-    UsuarioID INT,
+    Nome VARCHAR(50) not null,
+    Cargo VARCHAR(50) not null,
+    Setor VARCHAR(50) not null,
+    DataContratacao DATE not null,
+    Salario DECIMAL(10,2) not null,
+    UsuarioID INT not null,
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
 );
 CREATE TABLE Pacientes (
