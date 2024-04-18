@@ -1,8 +1,10 @@
 
 
+
 <!DOCTYPE html>
 <html lang="pt-br">
 <head>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clinicor - homepage</title>
@@ -11,7 +13,8 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"> 
 </head>
 <body>
-    <iframe src="barra.html" width="100%" height="110px" frameborder="0" class="iframe" id="navebar"></iframe>
+                            <?php include_once './back-end/alteradornavebar.php';  
+                            alteradornavebar(); ?>
     <form action="">
         <div>
             <img src="images/slide_background_home.png" alt="" class="imagemfundo">
@@ -60,6 +63,24 @@
     <script src="back-end/escolhernavebar.js"></script>
     
     </div>
+<script>
+    // Função para fazer uma requisição AJAX
+    function fazerRequisicao() {
+        var xhttp = new XMLHttpRequest();
+        xhttp.onreadystatechange = function() {
+            if (this.readyState == 4 && this.status == 200) {
+                // Atualiza o conteúdo da div com o resultado da requisição
+                document.getElementById("resultado").innerHTML = this.responseText;
+            }
+        };
+        // Faz a requisição para o arquivo PHP
+        xhttp.open("GET", "alteradornavebar.php", true);
+        xhttp.send();
+    }
+    
+    // Chama a função quando a página é carregada
+    window.onload = fazerRequisicao;
 
+</script>
 </body>
 </html>

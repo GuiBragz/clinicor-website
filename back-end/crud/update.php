@@ -1,5 +1,5 @@
 <?php
-include_once './connection.pp';
+include_once './connection.php';
 
 function modificadorSenha($senhanova, $codigosenha) {
     // Criar uma instância da classe Connection
