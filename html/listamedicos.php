@@ -1,7 +1,7 @@
 <?php
-include_once './back-end/connection.php';
-include_once './back-end/models/funcionario.php';
-include_once './back-end/crud/read.php';
+include_once '../back-end/connection.php';
+include_once '../back-end/models/funcionario.php';
+include_once '../back-end/crud/read.php';
 
 $funcionariosArray = preencherArrayFuncionarios($conn);
 ?>
