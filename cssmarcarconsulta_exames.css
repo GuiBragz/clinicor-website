@@ -32,7 +32,7 @@ body{
         }
         .option-label{
             margin-left: 10px;
-
+            margin-bottom: 3px;
         }
         .button-container {
             display: flex;
@@ -57,3 +57,10 @@ body{
         .button:hover {
             background-color: #737373;
         }
+
+        @media screen and (max-width: 1200px) {
+            .container {
+                justify-content: center;
+            }
+        }
+        
