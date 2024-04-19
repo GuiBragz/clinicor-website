@@ -77,33 +77,32 @@
 </head>
 <body>
     <main></main>
-    <iframe src="barra.html" width="100%" height="105px" frameborder="0"></iframe>
+    <iframe src="barra_user.html" width="100%" height="105px" frameborder="0"></iframe>
 
     <div class="container">
-        <div class="retangulo">
-            <input type="text" name="data_nascimento" id="data_nascimento" placeholder="Data de Nascimento">
-            <span class="error-message">Preencha este campo</span>
-        </div>
-        
-        <div class="retangulo">
-            <input type="text" name="genero" id="genero" placeholder="Gênero">
-            <span class="error-message">Preencha este campo</span>
-        </div>
-
-        <div class="retangulo">
-            <input type="text" name="endereco" id="endereco" placeholder="Endereço">
-            <span class="error-message">Preencha este campo</span>
-        </div>
-
-        <div class="retangulo">
-            <input type="text" name="numero_telefone" id="numero_telefone" placeholder="Número de Telefone">
-            <span class="error-message">Preencha este campo</span>
-        </div>
-
-        <div class="retangulo">
-            <input type="text" name="plano_saude_nome" id="plano_saude_nome" placeholder="Nome do Plano de Saúde">
-            <span class="error-message">Preencha este campo</span>
-        </div>
+        <form action="back-end/controlador_cadastro_paciente.php">
+            <div class="retangulo">
+                <input type="text" name="data_nascimento" id="data_nascimento" placeholder="Data de Nascimento">
+                <span class="error-message">Preencha este campo</span>
+            </div>
+            
+            <div class="retangulo">
+                <input type="text" name="genero" id="genero" placeholder="Gênero">
+                <span class="error-message">Preencha este campo</span>
+            </div>
+            <div class="retangulo">
+                <input type="text" name="endereco" id="endereco" placeholder="Endereço">
+                <span class="error-message">Preencha este campo</span>
+            </div>
+            <div class="retangulo">
+                <input type="text" name="numero_telefone" id="numero_telefone" placeholder="Número de Telefone">
+                <span class="error-message">Preencha este campo</span>
+            </div>
+            <div class="retangulo">
+                <input type="text" name="plano_saude_nome" id="plano_saude_nome" placeholder="Nome do Plano de Saúde">
+                <span class="error-message">Preencha este campo</span>
+            </div>
+        </form>
 
       
         <button class="enviar-btn" onclick="validarFormulario()">Enviar</button>

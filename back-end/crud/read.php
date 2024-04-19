@@ -10,8 +10,6 @@
         include_once './back-end/connection.php';
         include_once './back-end/models/usuario.php';
         include_once './back-end/models/funcionario.php';
-
-
         $conexao = getConnection();
 
         // Faz uma query no MySQL para verificar se as credenciais estão corretas
@@ -161,5 +159,60 @@
 
         // Retornar o array de funcionários preenchido
         return $funcionarios;
+    }
+
+    function verificarSeUsuarioTemPaciente() {
+        include_once '../back-end/connection.php';
+        include_once '../back-end/models/usuario.php';
+        include_once '../back-end/models/funcionario.php';
+        $conexao = getConnection();
+        // Verifica se a sessão está ativa
+        if (isset($_SESSION['usuario_email'])) {
+            // Obtém o email da sessão
+            $email = $_SESSION['usuario_email'];
+    
+            // Busca o usuário pelo email
+        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+        $stmt->bind_param("s", $email);
+        $stmt->execute();
+        $resultado = $stmt->get_result();
+
+        // Verifica se a consulta retornou algum resultado
+        if ($resultado->num_rows > 0) {
+            // Obtém a linha de resultado como um array associativo
+            $dadosUsuario = $resultado->fetch_assoc();
+            // Instancia um objeto Usuario com os dados obtidos
+            $usuario = new Usuario(
+                $dadosUsuario['UsuarioID'],
+                $dadosUsuario['Email'],
+                $dadosUsuario['Senha'],
+                $dadosUsuario['Tipo'],
+                $dadosUsuario['DataRegistro']
+            );
+                // Obtém o ID do usuário
+                $userid = $usuario->getusuarioid();
+    
+                // Criar uma instância da classe Connection
+                
+                
+                // Prevenir SQL Injection usando consultas preparadas
+                $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM pacientes WHERE usuarioid = ?");
+                $stmt->bind_param("s", $userid); // Usando $userid ao invés de $id
+                $stmt->execute();
+                $resultado = $stmt->get_result();
+            
+                // Obter o total de registros com o usuarioid fornecido
+                $total = $resultado->fetch_assoc()['total'];
+            
+                // Retorna true se houver registros, false caso contrário
+                return $total > 0;
+            } else {
+                // Se o usuário não for encontrado, retorna false
+                return false;
+            }
+        } else {
+            // Se a sessão não estiver ativa, retorna false
+            return false;
+        }
     }
 ?>
