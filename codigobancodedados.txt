@@ -1,9 +1,13 @@
 
-drop database clinicordb;
+
 create database clinicordb;
 use clinicordb;
 
-
+CREATE TABLE PlanosSaude (
+    PlanoSaudeID INT PRIMARY KEY auto_increment,
+    NomePlano VARCHAR(100),
+    Cobertura VARCHAR(255)
+);
 
 CREATE TABLE Usuarios (
     UsuarioID INT PRIMARY KEY auto_increment,
@@ -13,45 +17,46 @@ CREATE TABLE Usuarios (
     DataRegistro DATE,
     CodigoRecuperaSenha varchar(8) 
 );
-CREATE TABLE PlanosSaude (
-    PlanoSaudeID INT PRIMARY KEY auto_increment,
-    NomePlano VARCHAR(100),
-    Cobertura VARCHAR(255),
-   UsuarioID INT not null,
-FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
-);
-
-
 CREATE TABLE Funcionarios (
     FuncionarioID INT PRIMARY KEY auto_increment,
-    Nome VARCHAR(50) not null,
-    Cargo VARCHAR(50) not null,
-    Setor VARCHAR(50) not null,
-    DataContratacao DATE not null,
-    Salario DECIMAL(10,2) not null,
-    UsuarioID INT not null,
+    Nome VARCHAR(50),
+    Cargo VARCHAR(50),
+    Setor VARCHAR(50),
+    DataContratacao DATE,
+    Salario DECIMAL(10,2),
+    UsuarioID INT,
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
 );
 CREATE TABLE Pacientes (
-    PacienteID INT PRIMARY KEY auto_increment,
+    PacienteID INT PRIMARY KEY,
     Nome VARCHAR(50) not null,
     DataNascimento DATE not null,
     Genero VARCHAR(10) not null,
     Endereco VARCHAR(100) not null,
     NumeroTelefone VARCHAR(15) not null,
+    PlanoSaudeID INT ,
     UsuarioID INT not null,
-    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
+
     );
 
-
+CREATE TABLE Medicos (
+    MedicoID INT PRIMARY KEY auto_increment,
+    Nome VARCHAR(50) not null,
+    Especialidade VARCHAR(50) not null,
+    HorarioAtendimento VARCHAR(100),
+    NumConsultasRealizadas INT,
+    FuncionarioID INT not null,
+    FOREIGN KEY (FuncionarioID) REFERENCES Funcionarios(FuncionarioID)
+);
 
 CREATE TABLE Consultas (
     ConsultaID INT PRIMARY KEY auto_increment,
     DataHora DATETIME not null,
-    FuncionarioID INT not null,
+    MedicoID INT not null,
     PacienteID INT not null,
     Status VARCHAR(20),
-    FOREIGN KEY (FuncionarioID) REFERENCES Funcionarios(FuncionarioID),
+    FOREIGN KEY (MedicoID) REFERENCES Medicos(MedicoID),
     FOREIGN KEY (PacienteID) REFERENCES Pacientes(PacienteID)
 );
 
