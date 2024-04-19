@@ -23,7 +23,9 @@ function alteradornavebar() {
                 echo '<iframe src="barra_user.html" width="100%" height="110px" frameborder="0" class="iframe" id="navebar"></iframe>';
             } elseif ($tipo == "funcionario") {
                 echo '<iframe src="barraFuncionario.html" width="100%" height="110px" frameborder="0" class="iframe" id="navebar"></iframe>';
-            } 
+            }elseif($tipo == "adm"){
+                echo '<iframe src="barra_admoverpower.html" width="100%" height="110px" frameborder="0" class="iframe" id="navebar"></iframe>';
+            }
         } else {
             echo "Usuário não encontrado.";
         }

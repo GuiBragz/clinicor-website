@@ -33,35 +33,25 @@ CREATE TABLE Funcionarios (
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
 );
 CREATE TABLE Pacientes (
-    PacienteID INT PRIMARY KEY,
+    PacienteID INT PRIMARY KEY auto_increment,
     Nome VARCHAR(50) not null,
     DataNascimento DATE not null,
     Genero VARCHAR(10) not null,
     Endereco VARCHAR(100) not null,
     NumeroTelefone VARCHAR(15) not null,
-    PlanoSaudeID INT ,
     UsuarioID INT not null,
-    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
-    FOREIGN KEY (PlanoSaudeID) REFERENCES PlanosSaude(PlanoSaudeID)
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
     );
 
-CREATE TABLE Medicos (
-    MedicoID INT PRIMARY KEY auto_increment,
-    Nome VARCHAR(50) not null,
-    Especialidade VARCHAR(50) not null,
-    HorarioAtendimento VARCHAR(100),
-    NumConsultasRealizadas INT,
-    FuncionarioID INT not null,
-    FOREIGN KEY (FuncionarioID) REFERENCES Funcionarios(FuncionarioID)
-);
+
 
 CREATE TABLE Consultas (
     ConsultaID INT PRIMARY KEY auto_increment,
     DataHora DATETIME not null,
-    MedicoID INT not null,
+    FuncionarioID INT not null,
     PacienteID INT not null,
     Status VARCHAR(20),
-    FOREIGN KEY (MedicoID) REFERENCES Medicos(MedicoID),
+    FOREIGN KEY (FuncionarioID) REFERENCES Funcionarios(FuncionarioID),
     FOREIGN KEY (PacienteID) REFERENCES Pacientes(PacienteID)
 );
 
