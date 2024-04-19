@@ -1,6 +1,7 @@
 <?php
     // Importar o arquivo da conexão do banco de dados.
     include_once 'connection.php';
+    include_once './back-end/crud/read.php';
 
     // Função que verifica se já existe um usuário com o mesmo email.
     function usuarioJaExiste($conexao, $email) {
@@ -126,17 +127,18 @@
                 // Obter o ID do usuário
                 $usuarioID = $usuario->getUsuarioID();
             } else {
-                // Se o usuário não for encontrado, mostrar uma mensagem de erro e redirecionar
-                mostrarErroERedirecionar('Usuário não encontrado.');
+                // Se o usuário não for encontrado, mostrar uma mensagem de erro e retornar false
+                return false;
             }
         } else {
-            // Se o email da sessão não estiver definido, mostrar uma mensagem de erro e redirecionar
-            mostrarErroERedirecionar('Sessão de usuário não encontrada.');
+            // Se o email da sessão não estiver definido, mostrar uma mensagem de erro e retornar false
+            return false;
         }
     
         // Verificar se o paciente já existe
-        if (buscarPacientePorEmail($email)) {
-            mostrarErroERedirecionar('Dados já em uso!');
+        if ( buscarUsuarioPorEmail($email)) {
+            // Se o paciente já existir, mostrar uma mensagem de erro e retornar false
+            return false;
         } else {
             // Tentar executar a consulta SQL
             try {
@@ -154,31 +156,24 @@
     
                     // Verificar se a consulta foi bem-sucedida
                     if ($stmtPlanoSaude->affected_rows > 0) {
-                        // Redirecionar o usuário para a página de login após o cadastro bem-sucedido
-                        mostrarMensagemESair('Cadastro realizado com sucesso!', '../login.html');
+                        // Se tudo estiver bem, retornar true
+                        return true;
                     } else {
-                        mostrarErroERedirecionar('Ocorreu um erro ao cadastrar o plano de saúde.');
+                        // Se houver um erro ao inserir o plano de saúde, retornar false
+                        return false;
                     }
                 } else {
-                    mostrarErroERedirecionar('Ocorreu um erro ao cadastrar o paciente.');
+                    // Se houver um erro ao inserir o paciente, retornar false
+                    return false;
                 }
             } catch (Exception $e) {
-                mostrarErroERedirecionar('Ocorreu um erro, tente novamente mais tarde.');
+                // Se ocorrer um erro durante a execução das consultas SQL, retornar false
+                return false;
             }
         }
     }
     
-    function mostrarErroERedirecionar($mensagem) {
-        echo "<script>alert('$mensagem');</script>";
-        echo "<script>window.location.href = '../cadastro_user.html';</script>";
-        exit;
-    }
-    
-    function mostrarMensagemESair($mensagem, $url) {
-        echo "<script>alert('$mensagem');</script>";
-        echo "<script>window.location.href = '$url';</script>";
-        exit;
-    }
+
     
     
 

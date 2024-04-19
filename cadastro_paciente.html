@@ -1,144 +1,57 @@
 <!DOCTYPE html>
-<html lang="pt-br">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CLINICOR - Fale Conosco</title>
-    <link rel="stylesheet" href="cssmarcarconsulta_exames.css">
-    <link rel="icon" href="../images/favicon.ico.png" type="image/x-icon">
+    <link rel="icon" href="image/logo_clinicor_(2).png" type="image/png">
+    <link rel="favicons" href="image/favicons.ico" type="image/ico">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-
+    <title>CLINICOR</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="styles/login-cadastro.css">
     <style>
-        /* Estilo para as caixas retangulares */
-        .container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin-top: 30px;
-            margin-left: 600px;
-            background-color: transparent; 
-        }
-
-        .retangulo {
-            width: 400px;
-            height: 50px; 
-            background-color: #ffffff; 
-            border: 2px solid #A93A2F; 
-            border-radius: 10px; 
-            display: flex;
-            align-items: center;
-            padding: 0 15px; 
-            margin: 10px auto;
-            cursor: text; 
-            position: relative;
-        }
-
-        /* Estilos do texto dentro dos retângulos */
-        .retangulo input {
-            width: 100%; 
-            height: 100%; 
-            font-size: 16px; 
-            border: none; 
-            outline: none; 
-            background: transparent; 
-        }
-
-        /* Estilo para o botão enviar */
-        .enviar-btn {
-            width: 200px;
-            height: 50px;
-            background-color: #A93A2F; 
-            color: #ffffff; 
-            font-size: 18px;
-            border: none;
-            border-radius: 10px;
-            cursor: pointer;
-            margin-top: 20px; 
-        }
-
-        /* Estilo para a mensagem de erro */
-        .error-message {
-            position: absolute;
-            top: -20px;
+        .fundo {
+            position: fixed;
+            top: 0;
             left: 0;
-            font-size: 14px;
-            color: #A93A2F;
-            visibility: hidden; 
-        }
-
-        /* Estilo para a mensagem de sucesso */
-        .success-message {
-            margin-top: 10px; 
-            font-size: 18px;
-            color: #007BFF;
-            display: none; /
+            width: 100%;
+            height: 100%;
+            background-image: url('caminho/para/sua/imagem.jpg');
+            background-size: cover;
+            background-position: center;
+            z-index: -1;
+            opacity: 0.7; /* Ajuste a opacidade conforme desejado */
         }
     </style>
 </head>
 <body>
-    <main></main>
-    <iframe src="barra_user.html" width="100%" height="105px" frameborder="0"></iframe>
-
-    <div class="container">
-        <form action="back-end/controlador_cadastro_paciente.php">
-            <div class="retangulo">
-                <input type="text" name="data_nascimento" id="data_nascimento" placeholder="Data de Nascimento">
-                <span class="error-message">Preencha este campo</span>
-            </div>
-            
-            <div class="retangulo">
-                <input type="text" name="genero" id="genero" placeholder="Gênero">
-                <span class="error-message">Preencha este campo</span>
-            </div>
-            <div class="retangulo">
-                <input type="text" name="endereco" id="endereco" placeholder="Endereço">
-                <span class="error-message">Preencha este campo</span>
-            </div>
-            <div class="retangulo">
-                <input type="text" name="numero_telefone" id="numero_telefone" placeholder="Número de Telefone">
-                <span class="error-message">Preencha este campo</span>
-            </div>
-            <div class="retangulo">
-                <input type="text" name="plano_saude_nome" id="plano_saude_nome" placeholder="Nome do Plano de Saúde">
-                <span class="error-message">Preencha este campo</span>
-            </div>
+<main>
+    <div class="cadastro-area">
+        <h1>Novo Paciente</h1><br>
+        <form action="back-end/controlador-cadastro-paciente.php" method="post" enctype="multipart/form-data">
+            <div class="homec"><a href="home.html"><img src="images/favicon.ico.png" alt="home"></a></div> <!-- div que vai receber a imagem da home -->
+            <label>&ensp;Nome<br>
+                <input type="text" name="nome" class="input-campo" required id="input-nome" size="28" placeholder="  Nome Aqui"></label><br><br>
+            <label>&ensp;Data de Nascimento<br>
+                <input type="date" name="dataNasc" class="input-campo" required id="input-dataNasc" size="28"></label><br><br>
+            <label>&ensp;Gênero<br>
+                <input type="text" name="genero" class="input-campo" required id="input-genero" size="28" placeholder="  Gênero"></label><br><br>
+            <label>&ensp;Endereço<br>
+                <input type="text" name="endereco" class="input-campo" required id="input-endereco" size="28" placeholder="  Endereço"></label><br><br>
+            <label>&ensp;Número de Telefone<br>
+                <input type="text" name="numero_tel" class="input-campo" required id="input-numeroTel" size="28" placeholder="  Número de Telefone"></label><br><br>
+            <label>&ensp;Nome do Plano de Saúde<br>
+                <input type="text" name="plano_saude_nome" class="input-campo" required id="input-planoSaudeNome" size="28" placeholder="  Nome do Plano de Saúde"></label><br><br>
+            <label>&ensp;Cobertura do Plano<br>
+                <input type="text" name="plano_cobertura" class="input-campo" required id="input-planoCobertura" size="28" placeholder="  Cobertura do Plano"></label><br><br>
+            <button class="button" type="button"><a href="login.html">Cancelar</a></button>
+            <input type="submit" value="Concluir" class="button">
         </form>
-
-      
-        <button class="enviar-btn" onclick="validarFormulario()">Enviar</button>
-
-        <div class="success-message" id="successMessage">Cadastro realizado com sucesso!</div>
     </div>
-
-    <script>
-        function validarFormulario() {
-            // Verificar se todos os campos estão preenchidos
-            var dataNascimento = document.getElementById('data_nascimento').value;
-            var genero = document.getElementById('genero').value;
-            var endereco = document.getElementById('endereco').value;
-            var numeroTelefone = document.getElementById('numero_telefone').value;
-            var planoSaudeNome = document.getElementById('plano_saude_nome').value;
-
-            if (dataNascimento === '' || genero === '' || endereco === '' || numeroTelefone === '' || planoSaudeNome === '') {
-                // Se algum campo estiver vazio, exibir mensagem de erro
-                var errorMessages = document.querySelectorAll('.error-message');
-                errorMessages.forEach(function(message) {
-                    message.style.visibility = 'visible';
-                });
-
-                // Esconder mensagem de sucesso
-                document.getElementById('successMessage').style.display = 'none';
-            } else {
-                // Se todos os campos estiverem preenchidos, exibir mensagem de sucesso
-                document.getElementById('successMessage').style.display = 'block';
-
-                // Esconder mensagens de erro
-                var errorMessages = document.querySelectorAll('.error-message');
-                errorMessages.forEach(function(message) {
-                    message.style.visibility = 'hidden';
-                });
-            }
-        }
-    </script>
+    <div class="fundo"></div> <!-- div que vai receber a imagem de fundo -->
+</main>
+<footer>
+</footer>
 </body>
 </html>
