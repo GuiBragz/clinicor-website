@@ -1,7 +1,7 @@
 <?php
     // Importar o arquivo da conexão do banco de dados.
     include_once 'connection.php';
-    include_once './back-end/crud/read.php';
+    include_once 'crud/read.php';
 
     // Função que verifica se já existe um usuário com o mesmo email.
     function usuarioJaExiste($conexao, $email) {
@@ -114,71 +114,65 @@
         // Criar uma instância da classe Connection
         $conexao = getConnection();
         $usuarioID = null; // Inicializar a variável $usuarioID
-    
+        
         // Verificar se o usuário está logado
-        if(isset($_SESSION['usuario_email'])) {
-            // Obter o email da sessão
+        if (isset($_SESSION['usuario_email'])) {
             $email = $_SESSION['usuario_email'];
+            $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
     
-            // Verificar se o usuário existe com base no email da sessão
-            $usuario = buscarUsuarioPorEmail($email);
-    
-            if ($usuario) {
-                // Obter o ID do usuário
-                $usuarioID = $usuario->getUsuarioID();
+            // Verifica se a consulta retornou algum resultado
+            if ($resultado->num_rows > 0) {
+                // Obtém a linha de resultado como um array associativo
+                $dadosUsuario = $resultado->fetch_assoc();
+                // Obtem o ID do usuário
+                $usuarioID = $dadosUsuario['UsuarioID'];
             } else {
-                // Se o usuário não for encontrado, mostrar uma mensagem de erro e retornar false
-                return false;
+                // Se o usuário não estiver logado, exibir mensagem de erro e redirecionar
+                echo "<script>window.alert('Erro: Usuário não encontrado.');</script>";
+                echo "<script>window.location.href = '../cadastro_paciente.html';</script>";
+                exit(); // Importante adicionar exit() após o redirecionamento
             }
         } else {
-            // Se o email da sessão não estiver definido, mostrar uma mensagem de erro e retornar false
-            return false;
+            // Se a sessão do usuário não estiver ativa, exibir mensagem de erro e redirecionar
+            echo "<script>window.alert('Erro: Sessão do usuário não encontrada.');</script>";
+            echo "<script>window.location.href = '../cadastro_paciente.html';</script>";
+            exit(); // Importante adicionar exit() após o redirecionamento
         }
+        
+        // Tentar executar a consulta SQL
+        
+            // Inserir o paciente na tabela 'Pacientes'
+            $stmtPaciente = $conexao->prepare("INSERT INTO Pacientes (Nome, DataNascimento, Genero, Endereco, NumeroTelefone, UsuarioID) VALUES (?, ?, ?, ?, ?, ?)");
+            $stmtPaciente->bind_param("sssssi", $nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $usuarioID);
+            $stmtPaciente->execute();
     
-        // Verificar se o paciente já existe
-        if ( buscarUsuarioPorEmail($email)) {
-            // Se o paciente já existir, mostrar uma mensagem de erro e retornar false
-            return false;
-        } else {
-            // Tentar executar a consulta SQL
-            try {
-                // Inserir o paciente na tabela 'Pacientes'
-                $stmtPaciente = $conexao->prepare("INSERT INTO Pacientes (Nome, DataNascimento, Genero, Endereco, NumeroTelefone, UsuarioID) VALUES (?, ?, ?, ?, ?, ?)");
-                $stmtPaciente->bind_param("sssssi", $nome, $dataNascimento, $genero, $endereco, $numeroTelefone, $usuarioID);
-                $stmtPaciente->execute();
+            // Verificar se a inserção foi bem-sucedida
+            if ($stmtPaciente->affected_rows > 0) {
+                // Inserir o plano de saúde na tabela 'PlanosSaude'
+                $stmtPlanoSaude = $conexao->prepare("INSERT INTO PlanosSaude (NomePlano, Cobertura, UsuarioID) VALUES (?, ?, ?)");
+                $stmtPlanoSaude->bind_param("ssi", $planoSaudeNome, $planoSaudeCobertura, $usuarioID);
+                $stmtPlanoSaude->execute();
     
-                // Verificar se a inserção foi bem-sucedida
-                if ($stmtPaciente->affected_rows > 0) {
-                    // Inserir o plano de saúde na tabela 'PlanosSaude'
-                    $stmtPlanoSaude = $conexao->prepare("INSERT INTO PlanosSaude (NomePlano, Cobertura, UsuarioID) VALUES (?, ?, ?)");
-                    $stmtPlanoSaude->bind_param("ssi", $planoSaudeNome, $planoSaudeCobertura, $usuarioID);
-                    $stmtPlanoSaude->execute();
-    
-                    // Verificar se a consulta foi bem-sucedida
-                    if ($stmtPlanoSaude->affected_rows > 0) {
-                        // Se tudo estiver bem, retornar true
-                        return true;
-                    } else {
-                        // Se houver um erro ao inserir o plano de saúde, retornar false
-                        return false;
-                    }
+                // Verificar se a consulta foi bem-sucedida
+                if ($stmtPlanoSaude->affected_rows > 0) {
+                    // Se tudo estiver bem, retornar true
+                    return true;
                 } else {
-                    // Se houver um erro ao inserir o paciente, retornar false
-                    return false;
+                    // Se houver um erro ao inserir o plano de saúde, exibir mensagem de erro e redirecionar
+                    echo "<script>window.alert('Erro ao inserir plano de saúde.');</script>";
+                    echo "<script>window.location.href = '../cadastro_paciente.html';</script>";
+                    exit(); // Importante adicionar exit() após o redirecionamento
                 }
-            } catch (Exception $e) {
-                // Se ocorrer um erro durante a execução das consultas SQL, retornar false
-                return false;
+            } else {
+                // Se houver um erro ao inserir o paciente, exibir mensagem de erro e redirecionar
+                echo "<script>window.alert('Erro ao inserir paciente.');</script>";
+                echo "<script>window.location.href = '../cadastro_paciente.html';</script>";
+                exit(); // Importante adicionar exit() após o redirecionamento
             }
-        }
     }
-    
-
-    
-    
-
-
-
 
 
 

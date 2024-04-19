@@ -165,39 +165,31 @@
         include_once '../back-end/connection.php';
         include_once '../back-end/models/usuario.php';
         include_once '../back-end/models/funcionario.php';
-        $conexao = getConnection();
+    
         // Verifica se a sessão está ativa
         if (isset($_SESSION['usuario_email'])) {
             // Obtém o email da sessão
+            $conexao = getConnection();
             $email = $_SESSION['usuario_email'];
     
-            // Busca o usuário pelo email
-        $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
-        $stmt->bind_param("s", $email);
-        $stmt->execute();
-        $resultado = $stmt->get_result();
-
-        // Verifica se a consulta retornou algum resultado
-        if ($resultado->num_rows > 0) {
-            // Obtém a linha de resultado como um array associativo
-            $dadosUsuario = $resultado->fetch_assoc();
-            // Instancia um objeto Usuario com os dados obtidos
-            $usuario = new Usuario(
-                $dadosUsuario['UsuarioID'],
-                $dadosUsuario['Email'],
-                $dadosUsuario['Senha'],
-                $dadosUsuario['Tipo'],
-                $dadosUsuario['DataRegistro']
-            );
+            $stmt = $conexao->prepare("SELECT * FROM usuarios WHERE email = ?");
+            $stmt->bind_param("s", $email);
+            $stmt->execute();
+            $resultado = $stmt->get_result();
+    
+            // Verifica se a consulta retornou algum resultado
+            if ($resultado->num_rows > 0) {
+                // Obtém a linha de resultado como um array associativo
+                $dadosUsuario = $resultado->fetch_assoc();
                 // Obtém o ID do usuário
-                $userid = $usuario->getusuarioid();
+                $userid = $dadosUsuario['UsuarioID'];
     
                 // Criar uma instância da classe Connection
                 
                 
                 // Prevenir SQL Injection usando consultas preparadas
                 $stmt = $conexao->prepare("SELECT COUNT(*) as total FROM pacientes WHERE usuarioid = ?");
-                $stmt->bind_param("s", $userid); // Usando $userid ao invés de $id
+                $stmt->bind_param("i", $userid); // Corrigido para "i" para um inteiro
                 $stmt->execute();
                 $resultado = $stmt->get_result();
             

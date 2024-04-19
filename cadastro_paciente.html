@@ -11,26 +11,12 @@
     <link rel="stylesheet" href="./style.css">
     <link rel="stylesheet" href="cssmarcarconsulta_exames.css">
     <link rel="stylesheet" href="styles/login-cadastro.css">
-    <style>
-        .fundo {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-image: url('caminho/para/sua/imagem.jpg');
-            background-size: cover;
-            background-position: center;
-            z-index: -1;
-            opacity: 0.7; /* Ajuste a opacidade conforme desejado */
-        }
-    </style>
 </head>
 <body>
 <main>
     <div class="cadastro-area">
         <h1>Novo Paciente</h1><br>
-        <form action="back-end/controlador-cadastro-paciente.php" method="post" enctype="multipart/form-data">
+        <form action="back-end/controlador_cadastro_paciente.php" method="post" enctype="multipart/form-data">
             <div class="homec"><a href="home.html"><img src="images/favicon.ico.png" alt="home"></a></div> <!-- div que vai receber a imagem da home -->
             <label>&ensp;Nome<br>
                 <input type="text" name="nome" class="input-campo" required id="input-nome" size="28" placeholder="  Nome Aqui"></label><br><br>
@@ -50,7 +36,6 @@
             <input type="submit" value="Concluir" class="button">
         </form>
     </div>
-    <div class="fundo"></div> <!-- div que vai receber a imagem de fundo -->
 </main>
 <footer>
 </footer>
