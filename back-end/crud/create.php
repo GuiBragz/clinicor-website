@@ -152,8 +152,8 @@
             // Verificar se a inserção foi bem-sucedida
             if ($stmtPaciente->affected_rows > 0) {
                 // Inserir o plano de saúde na tabela 'PlanosSaude'
-                $stmtPlanoSaude = $conexao->prepare("INSERT INTO PlanosSaude (NomePlano, Cobertura, UsuarioID) VALUES (?, ?, ?)");
-                $stmtPlanoSaude->bind_param("ssi", $planoSaudeNome, $planoSaudeCobertura, $usuarioID);
+                $stmtPlanoSaude = $conexao->prepare("INSERT INTO PlanosSaude (NomePlano, Cobertura) VALUES (?, ?)");
+                $stmtPlanoSaude->bind_param("ss", $planoSaudeNome, $planoSaudeCobertura);
                 $stmtPlanoSaude->execute();
     
                 // Verificar se a consulta foi bem-sucedida

@@ -7,8 +7,8 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Processa os dados conforme necessário
     // Por exemplo, você pode salvar os dados em um banco de dados ou enviar um e-mail de confirmação
     // Aqui estamos apenas imprimindo os dados para fins de demonstração
-    echo "Nome: " . $nome . "<br>";
-    echo "E-mail: " . $email . "<br>";
+    echo "<script>window.alert('Atendimento marcado com sucesso!');</script>";
+    echo "<script>window.location.href = '../index.php';</script>";
     // Adicione aqui o restante do processamento dos dados
 }
 ?>

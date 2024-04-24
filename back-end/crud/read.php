@@ -37,9 +37,9 @@
 
     // Função para buscar os dados do usuário no MySQL e armazenar em um objeto
     function buscarUsuarioPorEmail($email) {
-        include_once './back-end/connection.php';
-        include_once './back-end/models/usuario.php';
-        include_once './back-end/models/funcionario.php';
+        include_once '../back-end/connection.php';
+        include_once '../back-end/models/usuario.php';
+        include_once '../back-end/models/funcionario.php';
 
 
 
@@ -74,9 +74,9 @@
         }}
 
         function VerificaEmailNoReturnDados($email) {
-            include_once './back-end/connection.php';
-            include_once './back-end/models/usuario.php';
-            include_once './back-end/models/funcionario.php';
+            include_once '../back-end/connection.php';
+            include_once '../back-end/models/usuario.php';
+            include_once '../back-end/models/funcionario.php';
 
 
             // Criar uma instância da classe Connection
@@ -98,9 +98,9 @@
 
 
             function buscarCodigoRecuperacao($CodigoRecuperaSenha) {
-                include_once './back-end/connection.php';
-                include_once './back-end/models/usuario.php';
-                include_once './back-end/models/funcionario.php';
+                include_once '../back-end/connection.php';
+                include_once '../back-end/models/usuario.php';
+                include_once '../back-end/models/funcionario.php';
 
 
                 $conexao = getConnection();
@@ -135,7 +135,7 @@
         $conexao = getConnection();
 
         // Query SQL para selecionar todos os funcionários da tabela Funcionarios
-        $sql = "SELECT * FROM Funcionarios WHERE cargo = 'Medico'";
+        $sql = "SELECT * FROM Funcionarios ";
         // Executar a query
         $result = $conexao->query($sql);
 

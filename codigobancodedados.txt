@@ -1,3 +1,4 @@
+drop database clinicordb;
 
 
 create database clinicordb;
@@ -28,7 +29,7 @@ CREATE TABLE Funcionarios (
     FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
 );
 CREATE TABLE Pacientes (
-    PacienteID INT PRIMARY KEY,
+    PacienteID INT PRIMARY KEY auto_increment,
     Nome VARCHAR(50) not null,
     DataNascimento DATE not null,
     Genero VARCHAR(10) not null,
@@ -36,7 +37,7 @@ CREATE TABLE Pacientes (
     NumeroTelefone VARCHAR(15) not null,
     PlanoSaudeID INT ,
     UsuarioID INT not null,
-    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID),
+    FOREIGN KEY (UsuarioID) REFERENCES Usuarios(UsuarioID)
 
     );
 

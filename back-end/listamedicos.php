@@ -19,7 +19,7 @@ $funcionariosArray = preencherArrayFuncionarios($conexao);
     <title>Document</title>
 </head>
 <body>
-    <iframe src="../barra.html" width="100%" height="110px" frameborder="0" class="iframe"></iframe>
+    <iframe src="../barra_user.html" width="100%" height="110px" frameborder="0" class="iframe"></iframe>
     <form action="">
         <div class="sub">
             <!-- Iterando sobre o array de funcionários utilizando foreach -->
