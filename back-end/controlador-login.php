@@ -12,7 +12,7 @@ function login($email, $senha) {
     if ($usuario !== null && password_verify($senha, $usuario->getSenha())) {
         $_SESSION['usuario_email'] = $email;
         echo "<script>window.alert('Login realizado com sucesso!');</script>";
-        echo "<script>window.location.href = '../index.php';</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     } else {
         echo "<script>window.alert('Email ou senha incorretos!');</script>";
         echo "<script>window.location.href = '../login.html';</script>";

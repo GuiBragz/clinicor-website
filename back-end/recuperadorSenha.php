@@ -109,7 +109,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     
     {
         echo "<script>window.alert('Email de recuperação enviado com sucesso!');</script>";
-        echo "<script>window.location.href = '../index.php';</script>";
+        echo "<script>window.location.href = '../index.html';</script>";
     // se o formulario não for enviado ele mostra um pop-up dizendo que não foi possivel enviar o email e o redireciona novamente para pagina de recuperar senha
     } else {
         echo "<script>window.alert('Erro ao tentar enviar email, tente novamente em instanteees!');</script>";
